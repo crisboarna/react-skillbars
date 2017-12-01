@@ -5,8 +5,8 @@
 /coverage
 
 # production
-/build-page
 /build-module
+/docs
 
 # misc
 .DS_Store

@@ -24,7 +24,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GH_TOKEN
-  local_dir: build-page
+  local_dir: docs
   on:
     branch: master
   name: Cristian Boarna
