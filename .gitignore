@@ -6,7 +6,6 @@
 
 # production
 /build-module
-/docs
 
 # misc
 .DS_Store
