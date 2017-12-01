@@ -5,7 +5,7 @@
 /coverage
 
 # production
-/build-page
+/build-ghpage
 /build-module
 
 # misc
