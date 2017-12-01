@@ -5,8 +5,8 @@
 /coverage
 
 # production
-/build-ghpage
 /build-module
+/build-ghpage
 
 # misc
 .DS_Store

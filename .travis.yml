@@ -22,9 +22,7 @@ branches:
     - /^v\d+\.\d+\.\d+$/
 deploy:
   provider: pages
+  name: Cristian Boarna
   skip_cleanup: true
   github_token: $GH_TOKEN
-  local_dir: build-page
-  on:
-    branch: gh-pages
-  name: Cristian Boarna
+  local_dir: build-ghpage
