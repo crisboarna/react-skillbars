@@ -26,5 +26,3 @@ deploy:
   skip_cleanup: true
   github_token: $GH_TOKEN
   local_dir: build-ghpage
-  on:
-    branch: gh-pages
