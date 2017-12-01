@@ -26,5 +26,5 @@ deploy:
   github_token: $GH_TOKEN
   local_dir: build-page
   on:
-    branch: gh-pages
+    branch: master
   name: Cristian Boarna
