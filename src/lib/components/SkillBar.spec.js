@@ -773,5 +773,17 @@ describe('SkillBar', () => {
       jest.runAllTimers();
       expect(component.state().collapsed).toEqual(false);
     });
+
+    it('should trigger event after custom delay provided', () => {
+      const skills = [
+        {type: "Java", level: 85}
+      ];
+      jest.useFakeTimers();
+
+      const component = shallow(<SkillBar skills={skills} animateDelay={7000}/>);
+      expect(component.state().collapsed).toEqual(true);
+      jest.runAllTimers();
+      expect(component.state().collapsed).toEqual(false);
+    })
   });
 });

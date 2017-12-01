@@ -27,6 +27,7 @@ const App = () => (
             <div className="navbar-collapse collapse sidebar-navbar-collapse">
               <ul className="nav navbar-nav">
                 <li><a href="#default">Basic Example</a></li>
+                <li><a href="#animateDelay">Basic Example with animateDelay</a></li>
                 <li><a href="#hueBar">Hue Colored Bar</a></li>
                 <li><a href="#hueBarText">Hue Colored Bar & Text</a></li>
                 <li><a href="#hueBarTextBg">Hue Colored Bar & Text & Text Bg</a></li>

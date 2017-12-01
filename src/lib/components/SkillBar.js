@@ -39,13 +39,15 @@ const getHSL = function getHSL(container, index, length) {
 export default class SkillBar extends Component<Props, State> {
   constructor() {
     super();
-    this.state = { collapsed: true };
+    this.state = {
+      collapsed: true,
+    };
   }
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({ collapsed: false })
-    }, 1000);
+    }, this.props.animateDelay ? this.props.animateDelay : 1000);
   }
 
   getSkillBarColor(skill: Object, index: number) {
