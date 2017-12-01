@@ -1,0 +1,150 @@
+{
+  "name": "react-skillbars",
+  "version": "0.0.0-development",
+  "main": "build-module/index.js",
+  "description": "React NPM library containing skill bars with full color customizations and responsive layout.",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build:ghpage": "node scripts/build-ghpage.js",
+    "build:module": "node scripts/build-module.js",
+    "build": "npm run build:ghpage && npm run build:module",
+    "test": "node scripts/test.js --env=jsdom --coverage",
+    "precommit": "CI=test npm test",
+    "commit": "git-cz",
+    "prepush": "CI=test npm test",
+    "flow": "flow",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crisboarna/react-skillbars.git"
+  },
+  "author": "Cristian Boarna <cristian.boarna@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/crisboarna/react-skillbars/issues"
+  },
+  "homepage": "https://crisboarna.github.io/react-skillbars",
+  "license": "MIT",
+  "files": [
+    "build-module/",
+    "README.md"
+  ],
+  "dependencies": {
+    "lodash.throttle": "4.1.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "7.1.6",
+    "babel-core": "6.26.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "7.1.2",
+    "babel-preset-react-app": "^3.1.0",
+    "babel-runtime": "6.26.0",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "chalk": "1.1.3",
+    "codecov": "3.0.0",
+    "commitizen": "2.9.6",
+    "css-loader": "0.28.7",
+    "cz-conventional-changelog": "2.1.0",
+    "dotenv": "4.0.0",
+    "enzyme": "3.2.0",
+    "enzyme-adapter-react-16": "1.1.0",
+    "eslint": "4.10.0",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-flowtype": "2.39.1",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.4.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.5",
+    "flow-bin": "0.59.0",
+    "fs-extra": "3.0.1",
+    "html-webpack-plugin": "2.29.0",
+    "husky": "0.14.3",
+    "jest": "20.0.4",
+    "node-sass": "^4.5.3",
+    "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-loader": "2.0.8",
+    "promise": "8.0.1",
+    "raf": "3.4.0",
+    "react": "^16.2.0",
+    "react-dev-utils": "^4.2.1",
+    "react-dom": "^16.2.0",
+    "sass-loader": "^6.0.6",
+    "semantic-release": "^8.2.0",
+    "style-loader": "0.19.0",
+    "sw-precache-webpack-plugin": "0.11.4",
+    "url-loader": "0.6.2",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.4",
+    "webpack-manifest-plugin": "1.3.2",
+    "whatwg-fetch": "2.0.3"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "html",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branche": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "collectCoverageFrom": [
+      "src/lib/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/lib/**/__tests__/**/*.js?(x)",
+      "<rootDir>/src/lib/**/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app",
+      "flow"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}
