@@ -175,15 +175,27 @@ const Content = () => (
 
     <br/><br/><br/><br/>
 
-    <h2 id='animateDelay'>Basic Example: No color attributes specified, defaulting all with animateDelay</h2>
+    <h2 id='animationDelay'>Basic Example: No color attributes specified, defaulting all with animationDelay</h2>
     <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
         <br/>
-        {`<SkillBar skills={SKILLS} animateDelay={7000}>`}
+        {`<SkillBar skills={SKILLS} animationDelay={7000}>`}
       </pre>
     </div>
-    <SkillBar skills={SKILLS1} animateDelay={7000}/>
+    <SkillBar skills={SKILLS1} animationDelay={7000}/>
+
+    <br/><br/><br/><br/>
+
+    <h2 id='animationDuration'>Basic Example: No color attributes specified, defaulting all with animationDuration</h2>
+    <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS1,null, 2) }
+        <br/>
+        {`<SkillBar skills={SKILLS} animationDuration={7000}>`}
+      </pre>
+    </div>
+    <SkillBar skills={SKILLS1} animationDuration={7000}/>
 
     <br/><br/><br/><br/>
 

@@ -1,11 +1,13 @@
 // @flow
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './SkillBar.scss';
 
 type Props = {
   skills: Array<{type:string, level:string, color ?:{ bar ?: string, title:{ text ?: string, background ?: string }}}>,
   colors: Object,
-  animationDelay: number
+  animationDelay: number,
+  animationDuration: number
 };
 
 type State = {
@@ -47,7 +49,7 @@ export default class SkillBar extends Component<Props, State> {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ collapsed: false })
-    }, this.props.animateDelay ? this.props.animateDelay : 1000);
+    }, this.props.animationDelay ? this.props.animationDelay : 1000);
   }
 
   getSkillBarColor(skill: Object, index: number) {
@@ -89,7 +91,7 @@ export default class SkillBar extends Component<Props, State> {
         {skills.map((skill, index) =>
           <div key={skill.type} className="skillbar">
             <div className="skillbar-title" style={{color: `${this.getTitleColor(skill,index, 'text')}`, background: `${this.getTitleColor(skill, index, 'background')}`}}><span>{skill.type}</span></div>
-            <div className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`} style={{width: `${skill.level}%`, background: `${this.getSkillBarColor(skill, index)}`}}></div>
+            <div className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`} style={{width: `${skill.level}%`, background: `${this.getSkillBarColor(skill, index)}`, transition: `width ${this.props.animationDuration}ms ease-in-out`}}></div>
             <div className="skillbar-percent">{skill.level}%</div>
           </div>
         )}
@@ -97,3 +99,10 @@ export default class SkillBar extends Component<Props, State> {
     )
   }
 }
+
+SkillBar.propTypes = {
+  skills: PropTypes.array.isRequired,
+  colors: PropTypes.object,
+  animationDelay: PropTypes.number,
+  animationDuration: PropTypes.number
+};

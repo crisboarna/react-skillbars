@@ -761,7 +761,7 @@ describe('SkillBar', () => {
     });
   });
 
-  describe('test animation trigger', () => {
+  describe('animation triggers', () => {
     it('should remove collapsed class after timeout expiry', () => {
       const skills = [
         {type: "Java", level: 85}
@@ -780,10 +780,19 @@ describe('SkillBar', () => {
       ];
       jest.useFakeTimers();
 
-      const component = shallow(<SkillBar skills={skills} animateDelay={7000}/>);
-      expect(component.state().collapsed).toEqual(true);
+      const component = shallow(<SkillBar skills={skills} animationDelay={7000}/>);
       jest.runAllTimers();
       expect(component.state().collapsed).toEqual(false);
-    })
+    });
+
+    it('should trigger with a custom animation duration',() => {
+      const skills = [
+        {type: "Java", level: 85}
+      ];
+      jest.useFakeTimers();
+
+      const component = shallow(<SkillBar skills={skills} animationDuration={7000}/>);
+      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('transition','width 7000ms ease-in-out');
+    });
   });
 });
