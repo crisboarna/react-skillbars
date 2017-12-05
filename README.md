@@ -91,6 +91,10 @@ colors = {
 
 Delay from mounting of component to when animation is triggered
 
+<b>offset</b> - Optional - defaults to 25
+
+Artificial tweaking of viewport for animation triggering. When component is completely contained by the artificial viewport animation is triggered. When element has a greater size than viewport size then animation triggers when element top is lower than middle of screen + offset and element bottom is higher than middle minus offset.
+
 ## Development
 
 In the project root run 
