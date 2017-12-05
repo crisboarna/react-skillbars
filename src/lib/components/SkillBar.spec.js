@@ -4,25 +4,26 @@ import Adapter from 'enzyme-adapter-react-16';
 import SkillBar from './SkillBar';
 
 describe('SkillBar', () => {
+  let component;
+
   beforeAll(() => {
     configure({ adapter: new Adapter() });
   });
 
-  describe('basic rendering', () => {
-    it('should crash without skills', () => {
-      expect(() =>  { shallow(<SkillBar />)}).toThrow();
-    });
+  afterEach(() => {
+    component.unmount();
+  });
 
+  describe('basic rendering', () => {
     it('should render  with skills array', () => {
-      const component = shallow(<SkillBar skills={[]} />);
+      component = mount(<SkillBar skills={[]} />);
       expect(component.exists()).toEqual(true);
     });
   });
 
   describe('props', () => {
-
     it('should have props for skills, none for colors, animationDelay', () => {
-      const component = mount(<SkillBar skills={[]} />);
+      component = mount(<SkillBar skills={[]} />);
       expect(component.props().skills).toBeDefined();
       expect(component.props().skills).toEqual([]);
       expect(component.props().colors).toBeUndefined();
@@ -30,7 +31,7 @@ describe('SkillBar', () => {
     });
 
     it('should have props for skills, colors, none for animationDelay', () => {
-      const component = mount(<SkillBar skills={[]} colors={{}}/>);
+      component = mount(<SkillBar skills={[]} colors={{}}/>);
       expect(component.props().skills).toBeDefined();
       expect(component.props().skills).toEqual([]);
       expect(component.props().colors).toBeDefined();
@@ -39,7 +40,7 @@ describe('SkillBar', () => {
     });
 
     it('should have props for skills, colors, animationDelay', () => {
-      const component = mount(<SkillBar skills={[]} colors={{}} animationDelay={0}/>);
+      component = mount(<SkillBar skills={[]} colors={{}} animationDelay={0}/>);
       expect(component.props().skills).toBeDefined();
       expect(component.props().skills).toEqual([]);
       expect(component.props().colors).toBeDefined();
@@ -51,7 +52,7 @@ describe('SkillBar', () => {
 
   describe('state', () => {
     it('should have collapsed true', () => {
-      const component = mount(<SkillBar skills={[]}/>);
+      component = mount(<SkillBar skills={[]}/>);
       expect(component.state().collapsed).toEqual(true);
     });
   });
@@ -62,7 +63,7 @@ describe('SkillBar', () => {
         {type: "Java", level: 85}
       ];
 
-      const component = shallow(<SkillBar skills={skills}/>);
+      component = mount(<SkillBar skills={skills}/>);
       expect(component.find('.skillbar').length).toEqual(1);
       expect(component.find('.skillbar-title').length).toEqual(1);
       expect(component.find('.skillbar-bar').length).toEqual(1);
@@ -85,7 +86,7 @@ describe('SkillBar', () => {
         {type: "NoSQL", level: 69}
       ];
 
-      const component = shallow(<SkillBar skills={skills}/>);
+      component = mount(<SkillBar skills={skills}/>);
       expect(component.find('.skillbar').length).toEqual(5);
       expect(component.find('.skillbar-title').length).toEqual(5);
       expect(component.find('.skillbar-bar').length).toEqual(5);
@@ -130,7 +131,7 @@ describe('SkillBar', () => {
         {type: "Java", level: 85 , color:{bar:'#fff'}},
       ];
 
-      const component = shallow(<SkillBar skills={skills}/>);
+      component = mount(<SkillBar skills={skills}/>);
       expect(component.find('.skillbar').length).toEqual(1);
       expect(component.find('.skillbar-title').length).toEqual(1);
       expect(component.find('.skillbar-bar').length).toEqual(1);
@@ -153,7 +154,7 @@ describe('SkillBar', () => {
         {type: "NoSQL", level: 69}
       ];
 
-      const component = shallow(<SkillBar skills={skills}/>);
+      component = mount(<SkillBar skills={skills}/>);
       expect(component.find('.skillbar').length).toEqual(5);
       expect(component.find('.skillbar-title').length).toEqual(5);
       expect(component.find('.skillbar-bar').length).toEqual(5);
@@ -200,7 +201,7 @@ describe('SkillBar', () => {
         {type: "NoSQL", level: 69, color:{bar:'cyan', title:{background:'brown'}}}
       ];
 
-      const component = shallow(<SkillBar skills={skills}/>);
+      component = mount(<SkillBar skills={skills}/>);
       expect(component.find('.skillbar').length).toEqual(5);
       expect(component.find('.skillbar-title').length).toEqual(5);
       expect(component.find('.skillbar-bar').length).toEqual(5);
@@ -256,7 +257,7 @@ describe('SkillBar', () => {
         }
       };
 
-      const component = shallow(<SkillBar skills={skills} colors={colors}/>);
+      component = mount(<SkillBar skills={skills} colors={colors}/>);
       expect(component.find('.skillbar').length).toEqual(1);
       expect(component.find('.skillbar-title').length).toEqual(1);
       expect(component.find('.skillbar-bar').length).toEqual(1);
@@ -293,7 +294,7 @@ describe('SkillBar', () => {
         }
       };
 
-      const component = shallow(<SkillBar skills={skills} colors={colors}/>);
+      component = mount(<SkillBar skills={skills} colors={colors}/>);
       expect(component.find('.skillbar').length).toEqual(5);
       expect(component.find('.skillbar-title').length).toEqual(5);
       expect(component.find('.skillbar-bar').length).toEqual(5);
@@ -367,7 +368,7 @@ describe('SkillBar', () => {
         }
       };
 
-      const component = shallow(<SkillBar skills={skills} colors={colors}/>);
+      component = mount(<SkillBar skills={skills} colors={colors}/>);
       expect(component.find('.skillbar').length).toEqual(5);
       expect(component.find('.skillbar-title').length).toEqual(5);
       expect(component.find('.skillbar-bar').length).toEqual(5);
@@ -455,7 +456,7 @@ describe('SkillBar', () => {
         }
       };
 
-      const component = shallow(<SkillBar skills={skills} colors={colors}/>);
+      component = mount(<SkillBar skills={skills} colors={colors}/>);
       expect(component.find('.skillbar').length).toEqual(5);
       expect(component.find('.skillbar-title').length).toEqual(5);
       expect(component.find('.skillbar-bar').length).toEqual(5);
@@ -518,7 +519,7 @@ describe('SkillBar', () => {
         }
       };
 
-      const component = shallow(<SkillBar skills={skills} colors={colors}/>);
+      component = mount(<SkillBar skills={skills} colors={colors}/>);
       expect(component.find('.skillbar').length).toEqual(1);
       expect(component.find('.skillbar-title').length).toEqual(1);
       expect(component.find('.skillbar-bar').length).toEqual(1);
@@ -572,7 +573,7 @@ describe('SkillBar', () => {
         }
       };
 
-      const component = shallow(<SkillBar skills={skills} colors={colors}/>);
+      component = mount(<SkillBar skills={skills} colors={colors}/>);
       expect(component.find('.skillbar').length).toEqual(5);
       expect(component.find('.skillbar-title').length).toEqual(5);
       expect(component.find('.skillbar-bar').length).toEqual(5);
@@ -658,7 +659,7 @@ describe('SkillBar', () => {
         }
       };
 
-      const component = shallow(<SkillBar skills={skills} colors={colors}/>);
+      component = mount(<SkillBar skills={skills} colors={colors}/>);
       expect(component.find('.skillbar').length).toEqual(1);
       expect(component.find('.skillbar-title').length).toEqual(1);
       expect(component.find('.skillbar-bar').length).toEqual(1);
@@ -722,7 +723,7 @@ describe('SkillBar', () => {
         }
       };
 
-      const component = shallow(<SkillBar skills={skills} colors={colors}/>);
+      component = mount(<SkillBar skills={skills} colors={colors}/>);
       expect(component.find('.skillbar').length).toEqual(5);
       expect(component.find('.skillbar-title').length).toEqual(5);
       expect(component.find('.skillbar-bar').length).toEqual(5);
@@ -762,37 +763,171 @@ describe('SkillBar', () => {
   });
 
   describe('animation triggers', () => {
-    it('should remove collapsed class after timeout expiry', () => {
-      const skills = [
-        {type: "Java", level: 85}
-      ];
-      jest.useFakeTimers();
+    const skills = [
+      {type: "Java", level: 85}
+    ];
 
-      const component = shallow(<SkillBar skills={skills}/>);
+    beforeEach(() => {
+      Element.prototype.getBoundingClientRect = jest.fn(() => {
+        return {
+          width: 847.5,
+          height: 335,
+          top: 869.566650390625,
+          left: 564.5,
+          bottom: 1098.566650390625,
+          right: 0,
+        }
+      });
+
+      window.pageYOffset = 0;
+      jest.useFakeTimers();
+    });
+
+    it('should remove collapsed class after timeout expiry', () => {
+      component = mount(<SkillBar skills={skills}/>);
+
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
       expect(component.state().collapsed).toEqual(true);
       jest.runAllTimers();
       expect(component.state().collapsed).toEqual(false);
     });
 
-    it('should trigger event after custom delay provided', () => {
-      const skills = [
-        {type: "Java", level: 85}
-      ];
-      jest.useFakeTimers();
+    it('should remove collapsed class after timeout expiry given documentElement scrollTop value', () => {
+      window.pageYOffset=undefined;
+      document.documentElement.scrollTop = 1;
+      component = mount(<SkillBar skills={skills}/>);
 
-      const component = shallow(<SkillBar skills={skills} animationDelay={7000}/>);
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
+      expect(component.state().collapsed).toEqual(true);
+      jest.runAllTimers();
+      expect(component.state().collapsed).toEqual(false);
+      document.documentElement.scrollTop = undefined;
+    });
+
+    it('should remove collapsed class after timeout expiry given document body scrollTop value', () => {
+      window.pageYOffset=undefined;
+      document.body.scrollTop = 1;
+      component = mount(<SkillBar skills={skills}/>);
+
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
+      expect(component.state().collapsed).toEqual(true);
+      jest.runAllTimers();
+      expect(component.state().collapsed).toEqual(false);
+      document.body.scrollTop = undefined;
+    });
+
+    it('should remove collapsed class after timeout expiry given default posTop value', () => {
+      window.pageYOffset=undefined;
+      component = mount(<SkillBar skills={skills}/>);
+
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
+      expect(component.state().collapsed).toEqual(true);
+      jest.runAllTimers();
+      expect(component.state().collapsed).toEqual(false);
+    });
+
+    it('should be in full visiblity due to high viewport', () => {
+      Element.prototype.getBoundingClientRect = jest.fn(() => {
+        return {
+          width: 847.5,
+          height: 335,
+          top: 869.566650390625,
+          left: 564.5,
+          bottom: 2098.566650390625,
+          right: 0,
+        }
+      });
+      component = mount(<SkillBar skills={skills}/>);
+
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
+      expect(component.state().collapsed).toEqual(true);
+      jest.runAllTimers();
+      expect(component.state().collapsed).toEqual(false);
+    });
+
+    it('should be invisible due to low component position', () => {
+      Element.prototype.getBoundingClientRect = jest.fn(() => {
+        return {
+          width: 847.5,
+          height: 335,
+          top: -169.566650390625,
+          left: 564.5,
+          bottom: -98.566650390625,
+          right: 0,
+        }
+      });
+
+      global.pageYOffset = 500;
+      component = mount(<SkillBar skills={skills} offset={375}/>);
+
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
+      expect(component.state().collapsed).toEqual(true);
+    });
+
+    it('should not change collapsed status after second scroll from full visiblity and listener removed for scroll events', () => {
+      component = mount(<SkillBar skills={skills}/>);
+
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
+      expect(component.state().collapsed).toEqual(true);
+      jest.runAllTimers();
+      expect(component.state().collapsed).toEqual(false);
+
+      global.pageYOffset = 510;
+      component.instance().isVisible = jest.fn(()=>{return {partially:false,completely:false}});
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+      expect(component.state().collapsed).toEqual(false);
+      expect(component.instance().isVisible.mock.calls.length).toEqual(0);
+    });
+
+    it('should unmount successfully after being activated', () => {
+      const mockMethod = jest.fn();
+      SkillBar.prototype.componentWillUnmount = mockMethod;
+      component = mount(<SkillBar skills={skills}/>);
+      component.unmount();
+      expect(mockMethod.mock.calls.length).toEqual(1);
+    });
+
+    it('should trigger event after custom delay provided', () => {
+      component = mount(<SkillBar skills={skills} animationDelay={7000}/>);
+
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
+      expect(component.state().collapsed).toEqual(true);
       jest.runAllTimers();
       expect(component.state().collapsed).toEqual(false);
     });
 
     it('should trigger with a custom animation duration',() => {
-      const skills = [
-        {type: "Java", level: 85}
-      ];
-      jest.useFakeTimers();
+      component = mount(<SkillBar skills={skills} animationDuration={7000}/>);
 
-      const component = shallow(<SkillBar skills={skills} animationDuration={7000}/>);
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+
+      expect(component.state().collapsed).toEqual(true);
+      jest.runAllTimers();
       expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('transition','width 7000ms ease-in-out');
+    });
+
+    it('should not trigger given no node ref', () => {
+      component = shallow(<SkillBar skills={skills}/>);
+
+      global.pageYOffset = 500;
+      window.dispatchEvent(new window.UIEvent('scroll',{detail:0}));
+      expect(component.state().collapsed).toEqual(true);
     });
   });
 });
