@@ -193,7 +193,7 @@ export default class SkillBar extends Component<Props, State> {
         {skills.map((skill, index) =>
           <div key={skill.type} className="skillbar" style={{height: `${this.getHeight(this.props.height)}`, 'lineHeight': `${this.getHeight(this.props.height)}`}}>
             <div className="skillbar-title" style={{color: `${this.getTitleColor(skill,index, 'text')}`, background: `${this.getTitleColor(skill, index, 'background')}`}}><span>{skill.type}</span></div>
-            <div className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`} style={{width: `${skill.level}%`, background: `${this.getSkillBarColor(skill, index)}`, transition: `width ${this.props.animationDuration}ms ease-in-out`}}></div>
+            <div className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`} style={{background: `${this.getSkillBarColor(skill, index)}`,width: `calc(${skill.level}% - 7%)`, transition: `width ${this.props.animationDuration}ms ease-in-out`}}></div>
             <div className="skillbar-percent">{skill.level}%</div>
           </div>
         )}

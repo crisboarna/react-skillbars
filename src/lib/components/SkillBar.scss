@@ -1,5 +1,9 @@
 $textColor: #ffffff;
 $skillBgColor: #eee;
+$titleBackground: #d35400;
+$barBackground: #e67e22;
+$height: 35px;
+$line-height:35px;
 
 .skillbar {
   position:relative;
@@ -7,8 +11,8 @@ $skillBgColor: #eee;
   margin-bottom:15px;
   width:100%;
   background:$skillBgColor;
-  height:35px;
-  line-height: 35px;
+  height:$height;
+  line-height: $line-height;
   border-radius:3px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
@@ -32,7 +36,7 @@ $skillBgColor: #eee;
   font-weight:bold;
   font-size:13px;
   color: $textColor;
-  background: #d35400;
+  background: $titleBackground;
   -webkit-border-top-left-radius:3px;
   -webkit-border-bottom-left-radius:4px;
   -moz-border-radius-topleft:3px;
@@ -58,7 +62,9 @@ $skillBgColor: #eee;
 
 .skillbar-bar {
   height:inherit;
-  background:#e67e22;
+  position:absolute;
+  left:110px;
+  background:$barBackground;
   border-radius:3px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
