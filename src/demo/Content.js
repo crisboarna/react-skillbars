@@ -2,73 +2,73 @@ import React from 'react';
 import SkillBar from '../lib';
 
 const SKILLS1 = [
-  {type: "Java", level: 85},
+  {type: "Java", level: 100},
+  {type: "React", level: 85},
   {type: "Javascript", level: 75},
-  {type: "Spring", level: 70},
-  {type: "Docker", level: 70},
-  {type: "NoSQL", level: 69},
-  {type: "React", level: 65},
-  {type: "HTML", level: 65}
+  {type: "Spring", level: 50},
+  {type: "Docker", level: 25},
+  {type: "HTML", level: 20},
+  {type: "NoSQL", level: 0}
 ];
 
 const SKILLS2 = [
-  {type: "Java", level: 85, color:{bar:'#2980b9'}},
+  {type: "Java", level: 100, color:{bar:'#2980b9'}},
+  {type: "React", level: 85},
   {type: "Javascript", level: 75},
-  {type: "Spring", level: 70},
-  {type: "Docker", level: 70},
-  {type: "NoSQL", level: 69},
-  {type: "React", level: 65},
-  {type: "HTML", level: 65}
+  {type: "Spring", level: 50},
+  {type: "Docker", level: 25},
+  {type: "HTML", level: 20},
+  {type: "NoSQL", level: 0}
 ];
 
 const SKILLS3 = [
-  {type: "Java", level: 85, color:{bar:'#3498db',title:{background:'#2980b9',text:'black'}}},
+  {type: "Java", level: 100, color:{bar:'#3498db',title:{background:'#2980b9',text:'black'}}},
+  {type: "React", level: 85, color:{bar:'brown'}},
   {type: "Javascript", level: 75, color:{bar:'yellow'}},
-  {type: "Spring", level: 70, color:{bar:'blue'}},
-  {type: "Docker", level: 70, color:{bar:'orange'}},
-  {type: "NoSQL", level: 69, color:{bar:'pink'}},
-  {type: "React", level: 65, color:{bar:'brown'}},
-  {type: "HTML", level: 65, color:{bar:'black'}}
+  {type: "Spring", level: 50, color:{bar:'blue'}},
+  {type: "Docker", level: 25, color:{bar:'orange'}},
+  {type: "HTML", level: 20, color:{bar:'black'}},
+  {type: "NoSQL", level: 0, color:{bar:'pink'}}
 ];
 
 const SKILLS4 = [
-  {type: "Java", level: 85, color:{bar:'#3498db',title:{background:'#2980b9',text:'black'}}},
+  {type: "Java", level: 100, color:{bar:'#3498db',title:{background:'#2980b9',text:'black'}}},
+  {type: "React", level: 85},
   {type: "Javascript", level: 75},
-  {type: "Spring", level: 70},
-  {type: "Docker", level: 70},
-  {type: "NoSQL", level: 69},
-  {type: "React", level: 65},
-  {type: "HTML", level: 65}
+  {type: "Spring", level: 50},
+  {type: "Docker", level: 25},
+  {type: "HTML", level: 20},
+  {type: "NoSQL", level: 0}
 ];
 
 const SKILLS6 = [
-  {type: "Java", level: 85, color:{bar:'#3498db', title:{text:'#fff', background:'#2980b9'}}},
+  {type: "Java", level: 100, color:{bar:'#3498db', title:{text:'#fff', background:'#2980b9'}}},
+  {type: "React", level: 85, color:{bar:'#4288d0', title:{text:'#fff', background:'#124e8c'}}},
   {type: "Javascript", level: 75, color:{bar:'#2c3e50', title:{text:'#fff', background:'#2c3e50'}}},
-  {type: "Spring", level: 70, color:{bar:'#5a68a5', title:{text:'#fff', background:'#46465e'}}},
-  {type: "Docker", level: 70, color:{bar:'#525252', title:{text:'#fff', background:'#333333'}}},
-  {type: "NoSQL", level: 69, color:{bar:'#2ecc71', title:{text:'#fff', background:'#27ae60'}}},
-  {type: "React", level: 65, color:{bar:'#4288d0', title:{text:'#fff', background:'#124e8c'}}},
-  {type: "HTML", level: 65, color:{bar:'black', title:{text:'#111', background:'#fff'}}}
+  {type: "Spring", level: 50, color:{bar:'#5a68a5', title:{text:'#fff', background:'#46465e'}}},
+  {type: "Docker", level: 25, color:{bar:'#525252', title:{text:'#fff', background:'#333333'}}},
+  {type: "HTML", level: 20, color:{bar:'black', title:{text:'#111', background:'#fff'}}},
+  {type: "NoSQL", level: 0, color:{bar:'#2ecc71', title:{text:'#fff', background:'#27ae60'}}}
 ];
 
 const SKILLS7 = [
-  {type: "Java", level: 85, color:{bar:'#3498db', title:{text:'#111', background:'#2980b9'}}},
+  {type: "Java", level: 100, color:{bar:'#3498db', title:{text:'#111', background:'#2980b9'}}},
+  {type: "React", level: 85},
   {type: "Javascript", level: 75},
-  {type: "Spring", level: 70},
-  {type: "Docker", level: 70},
-  {type: "NoSQL", level: 69},
-  {type: "React", level: 65},
-  {type: "HTML", level: 65}
+  {type: "Spring", level: 50},
+  {type: "Docker", level: 25},
+  {type: "HTML", level: 20},
+  {type: "NoSQL", level: 0}
 ];
 
 const SKILLS8 = [
-  {type: "Java", level: 85, color:{bar:'#3498db',title:{background:'#2980b9'}}},
+  {type: "Java", level: 100, color:{bar:'#3498db',title:{background:'#2980b9'}}},
+  {type: "React", level: 85},
   {type: "Javascript", level: 75},
-  {type: "Spring", level: 70},
-  {type: "Docker", level: 70},
-  {type: "NoSQL", level: 69},
-  {type: "React", level: 65},
-  {type: "HTML", level: 65}
+  {type: "Spring", level: 50},
+  {type: "Docker", level: 25},
+  {type: "HTML", level: 20},
+  {type: "NoSQL", level: 0}
 ];
 
 const colors1 = {
@@ -160,6 +160,14 @@ const colors4 = {
   }
 };
 
+const colors5 = {
+  bar: '#3498db',
+  title: {
+    text: '#fff',
+    background: '#2980b9'
+  }
+};
+
 const Content = () => (
   <div>
     <div id='default'>
@@ -214,10 +222,10 @@ const Content = () => (
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
         <br/>
-        {`<SkillBar skills={SKILLS} animationDelay={7000}>`}
+        {`<SkillBar skills={SKILLS} animationDelay={4000}>`}
       </pre>
       </div>
-      <SkillBar skills={SKILLS1} animationDelay={7000}/>
+      <SkillBar skills={SKILLS1} animationDelay={4000}/>
     </div>
 
     <br/><br/><br/><br/>
@@ -233,6 +241,23 @@ const Content = () => (
       </pre>
       </div>
       <SkillBar skills={SKILLS1} animationDuration={7000}/>
+    </div>
+
+    <br/><br/><br/><br/>
+
+    <div id='globalColoring'>
+      <h2>Hue with Element coloring override</h2>
+      <h4>Hue coloring with individual element override</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS1,null, 2) }
+        <br/>
+        colors = {JSON.stringify(colors5,null, 2)}
+        <br/>
+        {`<SkillBar skills={SKILLS} colors={colors}>`}
+        </pre>
+      </div>
+      <SkillBar skills={SKILLS1} colors={colors5}/>
     </div>
 
     <br/><br/><br/><br/>
@@ -392,7 +417,7 @@ const Content = () => (
         {`<SkillBar skills={SKILLS} colors={colors}>`}
         </pre>
       </div>
-      <SkillBar skills={SKILLS7} colors={colors1}/>
+      <SkillBar skills={SKILLS7} colors={colors1} offset={0}/>
     </div>
   </div>
 );

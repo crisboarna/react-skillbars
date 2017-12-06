@@ -31,6 +31,7 @@ const App = () => (
                 <li><a href="#heightCustom">height - Custom</a></li>
                 <li><a href="#animationDelay">animationDelay</a></li>
                 <li><a href="#animationDuration">animationDuration</a></li>
+                <li><a href="#globalColoring">Simple global coloring</a></li>
                 <li><a href="#hueBar">Hue Colored Bar</a></li>
                 <li><a href="#hueBarText">Hue Colored Bar & Text</a></li>
                 <li><a href="#hueBarTextBg">Hue Colored Bar & Text & Text Bg</a></li>
