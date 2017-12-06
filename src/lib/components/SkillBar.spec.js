@@ -27,16 +27,16 @@ describe('SkillBar', () => {
       expect(component.props().skills).toBeDefined();
       expect(component.props().skills).toEqual([]);
       expect(component.props().colors).toBeUndefined();
-      expect(component.props().animationDelay).toBeUndefined();
+      expect(component.props().animationDelay).toEqual(1000);
     });
 
-    it('should have props for skills, colors, none for animationDelay', () => {
+    it('should have props for skills, colors, default for animationDelay', () => {
       component = mount(<SkillBar skills={[]} colors={{}}/>);
       expect(component.props().skills).toBeDefined();
       expect(component.props().skills).toEqual([]);
       expect(component.props().colors).toBeDefined();
       expect(component.props().colors).toEqual({});
-      expect(component.props().animationDelay).toBeUndefined();
+      expect(component.props().animationDelay).toEqual(1000);
     });
 
     it('should have props for skills, colors, animationDelay', () => {
@@ -81,8 +81,8 @@ describe('SkillBar', () => {
     it('should render with empty height given no height prop', () => {
       component = mount(<SkillBar skills={skills}/>);
       expect(component.find('.skillbar').length).toEqual(1);
-      expect(component.find('.skillbar').prop('style')).toHaveProperty('height','');
-      expect(component.find('.skillbar').prop('style')).toHaveProperty('lineHeight','');
+      expect(component.find('.skillbar').prop('style')).toHaveProperty('height','35px');
+      expect(component.find('.skillbar').prop('style')).toHaveProperty('lineHeight','35px');
     });
 
     it('should render with given height numerical value', () => {
@@ -117,7 +117,7 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('background','');
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('color','');
       expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
     });
 
     it('should render five skillbars completely', () => {
@@ -156,15 +156,15 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('background','');
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('color','');
       expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
       expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc(75% - 7%)');
+      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc((100% - 110px) * (75 * 0.01))');
       expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc(69% - 7%)');
+      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc((100% - 110px) * (69 * 0.01))');
     });
   });
 
@@ -185,7 +185,7 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('background','');
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('color','');
       expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('background','#fff');
-      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
     });
 
     it('should render five skillbars with first element having specified coloring bar coloring', () => {
@@ -224,15 +224,15 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('background','');
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('color','');
       expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('background','#fff');
-      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
       expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc(75% - 7%)');
+      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc((100% - 110px) * (75 * 0.01))');
       expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc(69% - 7%)');
+      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc((100% - 110px) * (69 * 0.01))');
     });
 
     it('should render five skillbars with all elements with individual coloring', () => {
@@ -271,15 +271,15 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('background','brown');
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('color','');
       expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('background','#ffa');
-      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
       expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc(75% - 7%)');
+      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc((100% - 110px) * (75 * 0.01))');
       expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('background','');
-      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('background','yellow');
-      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('background','cyan');
-      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc(69% - 7%)');
+      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc((100% - 110px) * (69 * 0.01))');
     });
   });
 
@@ -311,7 +311,7 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('background','');
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('color','');
       expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('background','hsl(0, 50%, 80%)');
-      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
     });
 
     it('should render five skillbars with bar having hue data', () => {
@@ -364,15 +364,15 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('background','');
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('color','');
       expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('background','hsl(10, 50%, 80%)');
-      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
       expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('background','hsl(18, 50%, 84%)');
-      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc(75% - 7%)');
+      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc((100% - 110px) * (75 * 0.01))');
       expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('background','hsl(26, 50%, 88%)');
-      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('background','hsl(34, 50%, 92%)');
-      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('background','hsl(42, 50%, 96%)');
-      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc(69% - 7%)');
+      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc((100% - 110px) * (69 * 0.01))');
     });
 
     it('should render five skillbars with title text and bar having hue data', () => {
@@ -438,15 +438,15 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('background','');
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('color','hsl(250, 62%, 55.8%)');
       expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('background','hsl(10, 50%, 80%)');
-      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
       expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('background','hsl(18, 50%, 84%)');
-      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc(75% - 7%)');
+      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc((100% - 110px) * (75 * 0.01))');
       expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('background','hsl(26, 50%, 88%)');
-      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('background','hsl(34, 50%, 92%)');
-      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('background','hsl(42, 50%, 96%)');
-      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc(69% - 7%)');
+      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc((100% - 110px) * (69 * 0.01))');
     });
 
     it('should render five skillbars with title text, background and bar having hue data', () => {
@@ -526,15 +526,15 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('background','hsl(200, 80%, 84.6%)');
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('color','hsl(250, 62%, 55.8%)');
       expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('background','hsl(10, 50%, 80%)');
-      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
       expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('background','hsl(18, 50%, 84%)');
-      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc(75% - 7%)');
+      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc((100% - 110px) * (75 * 0.01))');
       expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('background','hsl(26, 50%, 88%)');
-      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('background','hsl(34, 50%, 92%)');
-      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('background','hsl(42, 50%, 96%)');
-      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc(69% - 7%)');
+      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc((100% - 110px) * (69 * 0.01))');
     });
   });
 
@@ -573,7 +573,7 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('background','#af32af');
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('color','#fff');
       expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('background','hsl(10, 50%, 80%)');
-      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
     });
 
     it('should render five skillbars with title text, background having hue data and bar having global', () => {
@@ -643,15 +643,15 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('background', 'hsl(200, 80%, 84.6%)');
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('color', 'hsl(250, 62%, 55.8%)');
       expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('background', '#abd');
-      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width', 'calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
       expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('background', '#abd');
-      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width', 'calc(75% - 7%)');
+      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc((100% - 110px) * (75 * 0.01))');
       expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('background', '#abd');
-      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width', 'calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('background', '#abd');
-      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width', 'calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('background', '#abd');
-      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width', 'calc(69% - 7%)');
+      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc((100% - 110px) * (69 * 0.01))');
     });
   });
 
@@ -713,7 +713,7 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('background','#111');
       expect(component.find('.skillbar-title').prop('style')).toHaveProperty('color','green');
       expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('background','white');
-      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
     });
 
     it('should render one skillbar with element coloring overriding hue coloring data remainder with hue data', () => {
@@ -793,15 +793,15 @@ describe('SkillBar', () => {
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('background','hsl(200, 184%, 84.6%)');
       expect(component.find('.skillbar-title').at(4).prop('style')).toHaveProperty('color','hsl(250, 62%, 55.8%)');
       expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('background','white');
-      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc(85% - 7%)');
+      expect(component.find('.skillbar-bar').at(0).prop('style')).toHaveProperty('width','calc((100% - 110px) * (85 * 0.01))');
       expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('background','hsl(18, 50%, 84%)');
-      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc(75% - 7%)');
+      expect(component.find('.skillbar-bar').at(1).prop('style')).toHaveProperty('width','calc((100% - 110px) * (75 * 0.01))');
       expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('background','hsl(26, 50%, 88%)');
-      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(2).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('background','hsl(34, 50%, 92%)');
-      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc(70% - 7%)');
+      expect(component.find('.skillbar-bar').at(3).prop('style')).toHaveProperty('width','calc((100% - 110px) * (70 * 0.01))');
       expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('background','hsl(42, 50%, 96%)');
-      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc(69% - 7%)');
+      expect(component.find('.skillbar-bar').at(4).prop('style')).toHaveProperty('width','calc((100% - 110px) * (69 * 0.01))');
     });
   });
 

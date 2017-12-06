@@ -62,7 +62,10 @@ export default class SkillBar extends Component<Props, State> {
   }
 
   static defaultProps = {
-    offset: 25
+    offset: 25,
+    height:35,
+    animationDuration: 3000,
+    animationDelay: 1000
   };
 
   constructor() {
@@ -116,7 +119,7 @@ export default class SkillBar extends Component<Props, State> {
     if (this.state.collapsed && this.visibilityHasChanged(visible) && this.isMovingIntoView(visible)) {
       setTimeout(() => {
         this.setState({ collapsed: false })
-      }, this.props.animationDelay ? this.props.animationDelay : 1000);
+      }, this.props.animationDelay);
       this.removeListener();
       this.setState({ lastVisibility: visible });
       } else {
@@ -177,11 +180,7 @@ export default class SkillBar extends Component<Props, State> {
   }
 
   getHeight(propHeight : number | string) {
-    if(propHeight) {
       return isString(propHeight) ? propHeight : `${propHeight}px`;
-    } else {
-      return '';
-    }
   }
 
   render() {
@@ -193,7 +192,7 @@ export default class SkillBar extends Component<Props, State> {
         {skills.map((skill, index) =>
           <div key={skill.type} className="skillbar" style={{height: `${this.getHeight(this.props.height)}`, 'lineHeight': `${this.getHeight(this.props.height)}`}}>
             <div className="skillbar-title" style={{color: `${this.getTitleColor(skill,index, 'text')}`, background: `${this.getTitleColor(skill, index, 'background')}`}}><span>{skill.type}</span></div>
-            <div className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`} style={{background: `${this.getSkillBarColor(skill, index)}`,width: `calc(${skill.level}% - 7%)`, transition: `width ${this.props.animationDuration}ms ease-in-out`}}></div>
+            <div className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`} style={{background: `${this.getSkillBarColor(skill, index)}`, width: `calc((100% - 110px) * (${skill.level} * 0.01))`, transition: `width ${this.props.animationDuration}ms ease-in-out`}}></div>
             <div className="skillbar-percent">{skill.level}%</div>
           </div>
         )}
