@@ -246,8 +246,8 @@ const Content = () => (
     <br/><br/><br/><br/>
 
     <div id='globalColoring'>
-      <h2>Hue with Element coloring override</h2>
-      <h4>Hue coloring with individual element override</h4>
+      <h2>Simple global coloring</h2>
+      <h4>Global coloring information from colors object</h4>
       <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
