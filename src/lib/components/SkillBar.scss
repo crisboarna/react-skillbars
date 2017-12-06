@@ -8,6 +8,7 @@ $skillBgColor: #eee;
   width:100%;
   background:$skillBgColor;
   height:35px;
+  line-height: 35px;
   border-radius:3px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
@@ -38,14 +39,15 @@ $skillBgColor: #eee;
   -moz-border-radius-bottomleft:3px;
   border-top-left-radius:3px;
   border-bottom-left-radius:3px;
+  height:inherit;
 }
 
 .skillbar-title span {
   display:block;
   background:rgba(0, 0, 0, 0.1);
   padding:0 20px;
-  height:35px;
-  line-height:35px;
+  height:inherit;
+  line-height:inherit;
   -webkit-border-top-left-radius:3px;
   -webkit-border-bottom-left-radius:3px;
   -moz-border-radius-topleft:3px;
@@ -55,7 +57,7 @@ $skillBgColor: #eee;
 }
 
 .skillbar-bar {
-  height:35px;
+  height:inherit;
   background:#e67e22;
   border-radius:3px;
   -moz-border-radius:3px;
@@ -68,8 +70,7 @@ $skillBgColor: #eee;
   right:10px;
   top:0;
   font-size:11px;
-  height:35px;
-  line-height:35px;
+  line-height:inherit;
   color:$textColor;
   color:rgba(0, 0, 0, 0.4);
 }

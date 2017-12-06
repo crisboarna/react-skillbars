@@ -12,7 +12,7 @@ const SKILLS1 = [
 ];
 
 const SKILLS2 = [
-  {type: "Java", level: 85, color:{bar:'#ff5aec'}},
+  {type: "Java", level: 85, color:{bar:'#2980b9'}},
   {type: "Javascript", level: 75},
   {type: "Spring", level: 70},
   {type: "Docker", level: 70},
@@ -22,7 +22,7 @@ const SKILLS2 = [
 ];
 
 const SKILLS3 = [
-  {type: "Java", level: 85, color:{bar:'red'}},
+  {type: "Java", level: 85, color:{bar:'#3498db',title:{background:'#2980b9',text:'black'}}},
   {type: "Javascript", level: 75, color:{bar:'yellow'}},
   {type: "Spring", level: 70, color:{bar:'blue'}},
   {type: "Docker", level: 70, color:{bar:'orange'}},
@@ -32,37 +32,37 @@ const SKILLS3 = [
 ];
 
 const SKILLS4 = [
-  {type: "Java", level: 85, color:{bar:'red', title:{text:'#111'}}},
-  {type: "Javascript", level: 75, color:{bar:'yellow'}},
-  {type: "Spring", level: 70, color:{bar:'blue'}},
-  {type: "Docker", level: 70, color:{bar:'orange'}},
-  {type: "NoSQL", level: 69, color:{bar:'pink'}},
-  {type: "React", level: 65, color:{bar:'brown'}},
-  {type: "HTML", level: 65, color:{bar:'black'}}
-];
-
-const SKILLS5 = [
-  {type: "Java", level: 85, color:{bar:'red', title:{text:'#111', background:'#fff'}}},
-  {type: "Javascript", level: 75, color:{bar:'yellow'}},
-  {type: "Spring", level: 70, color:{bar:'blue'}},
-  {type: "Docker", level: 70, color:{bar:'orange'}},
-  {type: "NoSQL", level: 69, color:{bar:'pink'}},
-  {type: "React", level: 65, color:{bar:'brown'}},
-  {type: "HTML", level: 65, color:{bar:'black'}}
+  {type: "Java", level: 85, color:{bar:'#3498db',title:{background:'#2980b9',text:'black'}}},
+  {type: "Javascript", level: 75},
+  {type: "Spring", level: 70},
+  {type: "Docker", level: 70},
+  {type: "NoSQL", level: 69},
+  {type: "React", level: 65},
+  {type: "HTML", level: 65}
 ];
 
 const SKILLS6 = [
-  {type: "Java", level: 85, color:{bar:'red', title:{text:'#111', background:'yellow'}}},
-  {type: "Javascript", level: 75, color:{bar:'yellow', title:{text:'#111', background:'blue'}}},
-  {type: "Spring", level: 70, color:{bar:'blue', title:{text:'#111', background:'orange'}}},
-  {type: "Docker", level: 70, color:{bar:'orange', title:{text:'#111', background:'pink'}}},
-  {type: "NoSQL", level: 69, color:{bar:'pink', title:{text:'#111', background:'brown'}}},
-  {type: "React", level: 65, color:{bar:'brown', title:{text:'#fff', background:'black'}}},
+  {type: "Java", level: 85, color:{bar:'#3498db', title:{text:'#fff', background:'#2980b9'}}},
+  {type: "Javascript", level: 75, color:{bar:'#2c3e50', title:{text:'#fff', background:'#2c3e50'}}},
+  {type: "Spring", level: 70, color:{bar:'#5a68a5', title:{text:'#fff', background:'#46465e'}}},
+  {type: "Docker", level: 70, color:{bar:'#525252', title:{text:'#fff', background:'#333333'}}},
+  {type: "NoSQL", level: 69, color:{bar:'#2ecc71', title:{text:'#fff', background:'#27ae60'}}},
+  {type: "React", level: 65, color:{bar:'#4288d0', title:{text:'#fff', background:'#124e8c'}}},
   {type: "HTML", level: 65, color:{bar:'black', title:{text:'#111', background:'#fff'}}}
 ];
 
 const SKILLS7 = [
-  {type: "Java", level: 85, color:{bar:'red', title:{text:'#111', background:'yellow'}}},
+  {type: "Java", level: 85, color:{bar:'#3498db', title:{text:'#111', background:'#2980b9'}}},
+  {type: "Javascript", level: 75},
+  {type: "Spring", level: 70},
+  {type: "Docker", level: 70},
+  {type: "NoSQL", level: 69},
+  {type: "React", level: 65},
+  {type: "HTML", level: 65}
+];
+
+const SKILLS8 = [
+  {type: "Java", level: 85, color:{bar:'#3498db',title:{background:'#2980b9'}}},
   {type: "Javascript", level: 75},
   {type: "Spring", level: 70},
   {type: "Docker", level: 70},
@@ -99,8 +99,7 @@ const colors2 = {
         maximum: 30
       },
       level: 50
-    },
-    background: '#fff5ab'
+    }
   }
 };
 
@@ -163,44 +162,85 @@ const colors4 = {
 
 const Content = () => (
   <div>
-    <h2 id='default'>Basic Example: No color attributes specified, defaulting all</h2>
-    <div>
+    <div id='default'>
+      <h2>All - Default</h2>
+      <h4>Nothing specified, all defaults</h4>
+      <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
         <br/>
         {`<SkillBar skills={SKILLS}>`}
       </pre>
+      </div>
+      <SkillBar skills={SKILLS1}/>
     </div>
-    <SkillBar skills={SKILLS1}/>
 
     <br/><br/><br/><br/>
 
-    <h2 id='animationDelay'>Basic Example: No color attributes specified, defaulting all with animationDelay</h2>
-    <div>
+    <div id='heightDefault'>
+      <h2>height - Default</h2>
+      <h4>Height with value, defaulting to pixel units</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS1,null, 2) }
+        <br/>
+        {`<SkillBar skills={SKILLS} height={15}>`}
+      </pre>
+      </div>
+      <SkillBar skills={SKILLS1} height={15}/>
+    </div>
+
+    <br/><br/><br/><br/>
+
+    <div id='heightCustom'>
+      <h2>height - Custom</h2>
+      <h4>Height with custom value and unit</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS1,null, 2) }
+        <br/>
+        {`<SkillBar skills={SKILLS} height={'20vh'}>`}
+      </pre>
+      </div>
+      <SkillBar skills={SKILLS1} height={'20vh'}/>
+    </div>
+
+    <br/><br/><br/><br/>
+
+    <div id='animationDelay'>
+      <h2>animationDelay</h2>
+      <h4>Delay to start animation in ms</h4>
+      <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
         <br/>
         {`<SkillBar skills={SKILLS} animationDelay={7000}>`}
       </pre>
+      </div>
+      <SkillBar skills={SKILLS1} animationDelay={7000}/>
     </div>
-    <SkillBar skills={SKILLS1} animationDelay={7000}/>
 
     <br/><br/><br/><br/>
 
-    <h2 id='animationDuration'>Basic Example: No color attributes specified, defaulting all with animationDuration</h2>
-    <div>
+    <div id='animationDuration'>
+      <h2>animationDuration</h2>
+      <h4>Length of animation in ms</h4>
+      <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
         <br/>
         {`<SkillBar skills={SKILLS} animationDuration={7000}>`}
       </pre>
+      </div>
+      <SkillBar skills={SKILLS1} animationDuration={7000}/>
     </div>
-    <SkillBar skills={SKILLS1} animationDuration={7000}/>
 
     <br/><br/><br/><br/>
 
-    <h2 id='hueBar'>Hue based coloring of bar</h2>
-    <div>
+    <div id='hueBar'>
+      <h2>Hue Colored Bar</h2>
+      <h4>Hue based coloring of all bars in component</h4>
+      <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
         <br/>
@@ -208,115 +248,50 @@ const Content = () => (
         <br/>
         {`<SkillBar skills={SKILLS} colors={colors}>`}
       </pre>
+      </div>
+      <SkillBar skills={SKILLS1} colors={colors1}/>
     </div>
-    <SkillBar skills={SKILLS1} colors={colors1}/>
 
     <br/><br/><br/><br/>
 
-    <h2 id='hueBarText'>Hue based coloring of bar and title text area</h2>
-    <div>
+    <div id='hueBarText'>
+      <h2>Hue Colored Bar & Text</h2>
+      <h4>Hue based coloring of bar and title text area</h4>
+      <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
         <br/>
-        colors = {JSON.stringify(colors1,null, 2)}
+        colors = {JSON.stringify(colors2,null, 2)}
         <br/>
         {`<SkillBar skills={SKILLS}>`}
         </pre>
+      </div>
+      <SkillBar skills={SKILLS1} colors={colors2}/>
     </div>
-    <SkillBar skills={SKILLS1} colors={colors2}/>
 
     <br/><br/><br/><br/>
 
-    <h2 id='hueBarTextBg'>Hue based coloring of bar and title text and bg area</h2>
-    <div>
+    <div id='hueBarTextBg'>
+      <h2>Hue Colored Bar & Text & Text Bg</h2>
+      <h4>Hue based coloring of bar and title text and bg area</h4>
+      <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS1,null, 2) }
         <br/>
-        colors = {JSON.stringify(colors1,null, 2)}
+        colors = {JSON.stringify(colors3,null, 2)}
         <br/>
         {`<SkillBar skills={SKILLS} colors={colors}>`}
         </pre>
+      </div>
+      <SkillBar skills={SKILLS1} colors={colors3}/>
     </div>
-    <SkillBar skills={SKILLS1} colors={colors3}/>
 
     <br/><br/><br/><br/>
 
-    <h2 id='elementFirstBar'>Element level coloring on first bar, defaulting remainder</h2>
-    <div>
-      <pre>
-        SKILLS = {JSON.stringify(SKILLS2,null, 2) }
-        <br/>
-        {`<SkillBar skills={SKILLS}>`}
-        </pre>
-    </div>
-    <SkillBar skills={SKILLS2}/>
-
-    <br/><br/><br/><br/>
-
-    <h2 id='elementAllBar'>Element level coloring on all bars</h2>
-    <div>
-      <pre>
-        SKILLS = {JSON.stringify(SKILLS3,null, 2) }
-        <br/>
-        {`<SkillBar skills={SKILLS}>`}
-        </pre>
-    </div>
-    <SkillBar skills={SKILLS3}/>
-
-    <br/><br/><br/><br/>
-
-    <h2 id='elementAllBarText'>Element level coloring on all, Text Coloring changed on first</h2>
-    <div>
-      <pre>
-        SKILLS = {JSON.stringify(SKILLS4,null, 2) }
-        <br/>
-        {`<SkillBar skills={SKILLS}>`}
-        </pre>
-    </div>
-    <SkillBar skills={SKILLS4}/>
-
-    <br/><br/><br/><br/>
-
-    <h2 id='elementAllBarAllTextBg'>Element level coloring on all, Text Background Coloring changed on first</h2>
-    <div>
-      <pre>
-        SKILLS = {JSON.stringify(SKILLS5,null, 2) }
-        <br/>
-        {`<SkillBar skills={SKILLS}>`}
-      </pre>
-    </div>
-    <SkillBar skills={SKILLS5}/>
-
-    <br/><br/><br/><br/>
-
-    <h2 id='elementAllBarAllTextAllBg'>Element level coloring on all, Text Background Coloring changed on all</h2>
-    <div>
-      <pre>
-        SKILLS = {JSON.stringify(SKILLS6,null, 2) }
-        <br/>
-        {`<SkillBar skills={SKILLS}>`}
-        </pre>
-    </div>
-    <SkillBar skills={SKILLS6}/>
-
-    <br/><br/><br/><br/>
-
-    <h2 id='hueWithElementOverride'>Hue coloring with element override</h2>
-    <div>
-      <pre>
-        SKILLS = {JSON.stringify(SKILLS7,null, 2) }
-        <br/>
-        colors = {JSON.stringify(colors1,null, 2)}
-        <br/>
-        {`<SkillBar skills={SKILLS} colors={colors}>`}
-        </pre>
-    </div>
-    <SkillBar skills={SKILLS7} colors={colors1}/>
-
-    <br/><br/><br/><br/>
-
-    <h2 id='hueWithSolidColors'>Hue coloring with element override</h2>
-    <div>
+    <div id='hueWithSolidColors'>
+      <h2>Hue with solid colors mixture</h2>
+      <h4>Hue coloring with solid colors properties mixed in object</h4>
+      <div>
       <pre>
         SKILLS = {JSON.stringify(SKILLS7,null, 2) }
         <br/>
@@ -324,8 +299,101 @@ const Content = () => (
         <br/>
         {`<SkillBar skills={SKILLS} colors={colors}>`}
         </pre>
+      </div>
+      <SkillBar skills={SKILLS1} colors={colors4}/>
     </div>
-    <SkillBar skills={SKILLS1} colors={colors4}/>
+
+    <br/><br/><br/><br/>
+
+    <div id='elementFirstBar'>
+      <h2>Element Color Specific Bar</h2>
+      <h4>Element level coloring on first bar, defaulting remainder</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS2,null, 2) }
+        <br/>
+        {`<SkillBar skills={SKILLS}>`}
+        </pre>
+      </div>
+      <SkillBar skills={SKILLS2}/>
+    </div>
+
+    <br/><br/><br/><br/>
+
+    <div id='elementFirstBarAndText'>
+      <h2>Element Color Specific Bar & Text Bg</h2>
+      <h4>Element level coloring first bar & Text Background</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS8,null, 2) }
+        <br/>
+        {`<SkillBar skills={SKILLS}>`}
+        </pre>
+      </div>
+      <SkillBar skills={SKILLS8}/>
+    </div>
+
+    <br/><br/><br/><br/>
+
+    <div id='elementAllBarText'>
+      <h2>Element Color Specific Bar & Text & Bg</h2>
+      <h4>Element level coloring on first Bar, Text & Text Bg with mixture of text and hex color values</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS4,null, 2) }
+        <br/>
+        {`<SkillBar skills={SKILLS}>`}
+        </pre>
+      </div>
+      <SkillBar skills={SKILLS4}/>
+    </div>
+
+    <br/><br/><br/><br/>
+
+    <div id='elementAllBar'>
+      <h2>Element Color All Bars</h2>
+      <h4>Element level coloring on all bars</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS3,null, 2) }
+        <br/>
+        {`<SkillBar skills={SKILLS}>`}
+        </pre>
+      </div>
+      <SkillBar skills={SKILLS3}/>
+    </div>
+
+    <br/><br/><br/><br/>
+
+    <div id='elementAllBarAllTextAllBg'>
+      <h2>Element Color All</h2>
+      <h4>Element level coloring on all, Text Background Coloring changed on all</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS6,null, 2) }
+        <br/>
+        {`<SkillBar skills={SKILLS}>`}
+        </pre>
+      </div>
+      <SkillBar skills={SKILLS6}/>
+    </div>
+
+    <br/><br/><br/><br/>
+
+    <div id='hueWithElementOverride'>
+      <h2>Hue with Element coloring override</h2>
+      <h4>Hue coloring with individual element override</h4>
+      <div>
+      <pre>
+        SKILLS = {JSON.stringify(SKILLS7,null, 2) }
+        <br/>
+        colors = {JSON.stringify(colors1,null, 2)}
+        <br/>
+        {`<SkillBar skills={SKILLS} colors={colors}>`}
+        </pre>
+      </div>
+      <SkillBar skills={SKILLS7} colors={colors1}/>
+    </div>
   </div>
 );
 

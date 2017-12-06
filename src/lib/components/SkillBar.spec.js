@@ -48,12 +48,55 @@ describe('SkillBar', () => {
       expect(component.props().animationDelay).toBeDefined();
       expect(component.props().animationDelay).toEqual(0);
     });
+
+    it('should have props for all props', () => {
+      component = mount(<SkillBar skills={[]} colors={{}} animationDelay={5} animationDuration={12} offset={100} height={50}/>);
+      expect(component.props().skills).toBeDefined();
+      expect(component.props().skills).toEqual([]);
+      expect(component.props().colors).toBeDefined();
+      expect(component.props().colors).toEqual({});
+      expect(component.props().animationDelay).toBeDefined();
+      expect(component.props().animationDelay).toEqual(5);
+      expect(component.props().animationDuration).toBeDefined();
+      expect(component.props().animationDuration).toEqual(12);
+      expect(component.props().offset).toBeDefined();
+      expect(component.props().offset).toEqual(100);
+      expect(component.props().height).toBeDefined();
+      expect(component.props().height).toEqual(50);
+    });
   });
 
   describe('state', () => {
     it('should have collapsed true', () => {
       component = mount(<SkillBar skills={[]}/>);
       expect(component.state().collapsed).toEqual(true);
+    });
+  });
+
+  describe('height', () => {
+    const skills = [
+      {type: "Java", level: 85}
+    ];
+
+    it('should render with empty height given no height prop', () => {
+      component = mount(<SkillBar skills={skills}/>);
+      expect(component.find('.skillbar').length).toEqual(1);
+      expect(component.find('.skillbar').prop('style')).toHaveProperty('height','');
+      expect(component.find('.skillbar').prop('style')).toHaveProperty('lineHeight','');
+    });
+
+    it('should render with given height numerical value', () => {
+      component = mount(<SkillBar skills={skills} height={10}/>);
+      expect(component.find('.skillbar').length).toEqual(1);
+      expect(component.find('.skillbar').prop('style')).toHaveProperty('height','10px');
+      expect(component.find('.skillbar').prop('style')).toHaveProperty('lineHeight','10px');
+    });
+
+    it('should render with given height string value', () => {
+      component = mount(<SkillBar skills={skills} height={'10vh'}/>);
+      expect(component.find('.skillbar').length).toEqual(1);
+      expect(component.find('.skillbar').prop('style')).toHaveProperty('height','10vh');
+      expect(component.find('.skillbar').prop('style')).toHaveProperty('lineHeight','10vh');
     });
   });
 

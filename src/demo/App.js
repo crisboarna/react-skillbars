@@ -26,17 +26,20 @@ const App = () => (
             </div>
             <div className="navbar-collapse collapse sidebar-navbar-collapse">
               <ul className="nav navbar-nav">
-                <li><a href="#default">Basic Example</a></li>
-                <li><a href="#animationDelay">Basic Example with animationDelay</a></li>
-                <li><a href="#animationDuration">Basic Example with animationDuration</a></li>
+                <li><a href="#default">All - Default</a></li>
+                <li><a href="#heightDefault">height - Default</a></li>
+                <li><a href="#heightCustom">height - Custom</a></li>
+                <li><a href="#animationDelay">animationDelay</a></li>
+                <li><a href="#animationDuration">animationDuration</a></li>
                 <li><a href="#hueBar">Hue Colored Bar</a></li>
                 <li><a href="#hueBarText">Hue Colored Bar & Text</a></li>
                 <li><a href="#hueBarTextBg">Hue Colored Bar & Text & Text Bg</a></li>
                 <li><a href="#hueWithSolidColors">Hue with Solid Colors</a></li>
-                <li><a href="#elementFirstBar">Element Coloring Individual Bar</a></li>
-                <li><a href="#elementAllBar">Element Coloring All Bars</a></li>
-                <li><a href="#elementAllBarText">Element Coloring All Bars & Text</a></li>
-                <li><a href="#elementAllBarAllTextBg">Element Coloring All Bars & All Text & Bg</a></li>
+                <li><a href="#elementFirstBar">Element Color Specific Bar</a></li>
+                <li><a href="#elementFirstBarAndText">Element Color Specific Bar & Text Bg</a></li>
+                <li><a href="#elementAllBarText">Element Color Specific Bar & Text & Bg</a></li>
+                <li><a href="#elementAllBar">Element Color All Bars</a></li>
+                <li><a href="#elementAllBarAllTextAllBg">Element Color All</a></li>
                 <li><a href="#hueWithElementOverride">Hue with Element coloring override</a></li>
               </ul>
             </div>

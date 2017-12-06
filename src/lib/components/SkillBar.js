@@ -4,25 +4,50 @@ import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import './SkillBar.scss';
 
+const isString = function isString(value) {
+  return Object.prototype.toString.call(value) === "[object String]";
+};
+
+const isNumber = function isNumber(value) {
+  return Object.prototype.toString.call(value) === "[object Number]";
+};
+
+const getHSL = function getHSL(container, index, length) {
+  const calculateStep = function calculateStep(value) {
+    if(isNumber(value)) {
+      return value;
+    } else {
+      return value.minimum + (index * (value.maximum - value.minimum) / length);
+    }
+  };
+
+  const hue = calculateStep(container.hue);
+  const sat = calculateStep(container.saturation);
+  const level = calculateStep(container.level);
+
+  return `hsl(${hue}, ${sat}%, ${level}%)`;
+};
+
 type Props = {
-  skills: Array<{type:string, level:string, color ?:{ bar ?: string, title:{ text ?: string, background ?: string }}}>,
-  colors: Object,
-  animationDelay: number,
-  animationDuration: number,
-  offset: number
+  skills : Array<{type:string, level:string, color ?:{ bar ?: string, title:{ text ?: string, background ?: string }}}>,
+  colors : Object,
+  animationDelay : number,
+  animationDuration : number,
+  offset : number,
+  height : number | string
 };
 
 type State = {
-  collapsed: boolean,
-  lastVisibility: Object,
-  clientSide: boolean,
-  elementBottom?: number,
-  elementTop?: number
+  collapsed : boolean,
+  lastVisibility : Object,
+  clientSide : boolean,
+  elementBottom ?: number,
+  elementTop ?: number
 };
 
 export default class SkillBar extends Component<Props, State> {
-  node: ?HTMLDivElement;
-  listener: Object;
+  node : ?HTMLDivElement;
+  listener : Object;
 
   static posTop() {
     if (typeof window.pageYOffset !== "undefined") {
@@ -151,6 +176,14 @@ export default class SkillBar extends Component<Props, State> {
     }
   }
 
+  getHeight(propHeight : number | string) {
+    if(propHeight) {
+      return isString(propHeight) ? propHeight : `${propHeight}px`;
+    } else {
+      return '';
+    }
+  }
+
   render() {
     const { collapsed } = this.state;
     const { skills } = this.props;
@@ -158,7 +191,7 @@ export default class SkillBar extends Component<Props, State> {
     return(
       <div ref={node => this.node = node}>
         {skills.map((skill, index) =>
-          <div key={skill.type} className="skillbar">
+          <div key={skill.type} className="skillbar" style={{height: `${this.getHeight(this.props.height)}`, 'lineHeight': `${this.getHeight(this.props.height)}`}}>
             <div className="skillbar-title" style={{color: `${this.getTitleColor(skill,index, 'text')}`, background: `${this.getTitleColor(skill, index, 'background')}`}}><span>{skill.type}</span></div>
             <div className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`} style={{width: `${skill.level}%`, background: `${this.getSkillBarColor(skill, index)}`, transition: `width ${this.props.animationDuration}ms ease-in-out`}}></div>
             <div className="skillbar-percent">{skill.level}%</div>
@@ -174,29 +207,6 @@ SkillBar.propTypes = {
   colors: PropTypes.object,
   animationDelay: PropTypes.number,
   animationDuration: PropTypes.number,
-  offset: PropTypes.number
-};
-
-const isString = function isString(value) {
-  return Object.prototype.toString.call(value) === "[object String]";
-};
-
-const isNumber = function isNumber(value) {
-  return Object.prototype.toString.call(value) === "[object Number]";
-};
-
-const getHSL = function getHSL(container, index, length) {
-  const calculateStep = function calculateStep(value) {
-    if(isNumber(value)) {
-      return value;
-    } else {
-      return value.minimum + (index * (value.maximum - value.minimum) / length);
-    }
-  };
-
-  const hue = calculateStep(container.hue);
-  const sat = calculateStep(container.saturation);
-  const level = calculateStep(container.level);
-
-  return `hsl(${hue}, ${sat}%, ${level}%)`;
+  offset: PropTypes.number,
+  height: PropTypes.oneOfType([PropTypes.number,PropTypes.string])
 };

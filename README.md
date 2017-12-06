@@ -95,6 +95,21 @@ Delay from mounting of component to when animation is triggered
 
 Artificial tweaking of viewport for animation triggering. When component is completely contained by the artificial viewport animation is triggered. When element has a greater size than viewport size then animation triggers when element top is lower than middle of screen + offset and element bottom is higher than middle minus offset.
 
+<b>height</b> - Optional
+
+Specifies the height of each bar in the component. Accepts plain numbers which default to pixel units
+
+```javascript
+<SkillBar skills={SKILLS} height={10}/>
+```
+
+strings with unit attached at end as
+
+```javascript
+<SkillBar skills={SKILLS} height={'10vh'}/>
+```
+
+
 ## Development
 
 In the project root run 
