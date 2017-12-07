@@ -1,4 +1,5 @@
 language: node_js
+sudo: false
 cache:
   directories:
     - ~/.npm
@@ -6,11 +7,13 @@ cache:
 notifications:
   email: false
 node_js:
-  - '8'
+  - "8"
 env:
   - CI=TRAVISCI
+before_install:
+  - npm install -g greenkeeper-lockfile@1
 before_script:
-  - npm prune
+  - greenkeeper-lockfile-update
 script:
   - npm test
   - npm run build
