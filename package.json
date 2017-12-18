@@ -54,7 +54,7 @@
     "cz-conventional-changelog": "2.1.0",
     "dotenv": "4.0.0",
     "enzyme": "3.2.0",
-    "enzyme-adapter-react-16": "1.1.0",
+    "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.13.1",
     "eslint-config-react-app": "^2.0.1",
     "eslint-loader": "1.9.0",
