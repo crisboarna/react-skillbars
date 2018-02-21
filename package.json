@@ -72,7 +72,7 @@
     "jest": "21.2.1",
     "node-sass": "^4.5.3",
     "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-flexbugs-fixes": "3.3.0",
     "postcss-loader": "2.0.9",
     "promise": "8.0.1",
     "prop-types": "15.6.0",
