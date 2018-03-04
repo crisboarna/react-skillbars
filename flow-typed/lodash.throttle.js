@@ -1,3 +1,3 @@
 declare module 'lodash.throttle' {
-  declare var exports: any;
+  declare module.exports: any;
 }

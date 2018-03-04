@@ -14,7 +14,7 @@
     "build:module": "node scripts/build-module.js",
     "build": "npm run build:ghpage && npm run build:module",
     "test": "node scripts/test.js --env=jsdom --coverage",
-    "precommit": "CI=test npm test",
+    "precommit": "CI=test npm test && npm run flow",
     "commit": "git-cz",
     "prepush": "CI=test npm test",
     "flow": "flow",
