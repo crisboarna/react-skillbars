@@ -14,10 +14,11 @@
     "build:module": "node scripts/build-module.js",
     "build": "npm run build:ghpage && npm run build:module",
     "test": "node scripts/test.js --env=jsdom --coverage",
-    "precommit": "CI=test npm test && npm run flow",
+    "precommit": "CI=test npm test && npm run flow && npm run lint",
     "commit": "git-cz",
     "prepush": "CI=test npm test",
     "flow": "flow",
+    "lint": "eslint . --fix",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -58,7 +59,7 @@
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.18.2",
-    "eslint-config-react-app": "^2.0.1",
+    "eslint-config-airbnb": "16.1.0",
     "eslint-loader": "2.0.0",
     "eslint-plugin-flowtype": "2.46.1",
     "eslint-plugin-import": "2.9.0",
@@ -87,8 +88,8 @@
     "style-loader": "0.20.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "1.0.1",
-    "webpack": "3.8.1",
-    "webpack-dev-server": "3.1.0",
+    "webpack": "3.11.0",
+    "webpack-dev-server": "2.11.1",
     "webpack-manifest-plugin": "2.0.0-rc.2",
     "whatwg-fetch": "2.0.3"
   },
@@ -149,6 +150,47 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
-  }
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "rules": {
+      "react/require-default-props": "off",
+      "max-len": [
+        "error",
+        {
+          "code": 160
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
+      "comma-dangle": "off",
+      "react/sort-comp": "off",
+      "react/no-did-mount-set-state": "off"
+    },
+    "globals": {
+      "expect": false,
+      "it": false,
+      "describe": false,
+      "beforeAll": false,
+      "beforeEach": false,
+      "afterEach": false,
+      "window": false,
+      "document": false,
+      "jest": false,
+      "Element": false,
+      "HTMLDivElement": false
+    }
+  },
+  "eslintIgnore": [
+    "coverage/*",
+    "config/*",
+    "flow-typed/*",
+    "scripts/*",
+    "build-ghpage/*",
+    "build-module/*",
+    "src/demo/registerServiceWorker.js"
+  ]
 }

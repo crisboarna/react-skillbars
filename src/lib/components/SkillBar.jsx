@@ -1,24 +1,24 @@
 // @flow
+/* eslint-disable no-return-assign */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import './SkillBar.scss';
 
 const isString = function isString(value) {
-  return Object.prototype.toString.call(value) === "[object String]";
+  return Object.prototype.toString.call(value) === '[object String]';
 };
 
 const isNumber = function isNumber(value) {
-  return Object.prototype.toString.call(value) === "[object Number]";
+  return Object.prototype.toString.call(value) === '[object Number]';
 };
 
 const getHSL = function getHSL(container, index, length) {
   const calculateStep = function calculateStep(value) {
-    if(isNumber(value)) {
+    if (isNumber(value)) {
       return value;
-    } else {
-      return value.minimum + (index * (value.maximum - value.minimum) / length);
     }
+    return value.minimum + ((index * (value.maximum - value.minimum)) / length);
   };
 
   const hue = calculateStep(container.hue);
@@ -26,6 +26,10 @@ const getHSL = function getHSL(container, index, length) {
   const level = calculateStep(container.level);
 
   return `hsl(${hue}, ${sat}%, ${level}%)`;
+};
+
+const getHeight = function getHeight(propHeight : number | string) {
+  return isString(propHeight) ? propHeight : `${propHeight}px`;
 };
 
 type Props = {
@@ -50,20 +54,19 @@ export default class SkillBar extends Component<Props, State> {
   listener : Object;
 
   static posTop() {
-    if (typeof window.pageYOffset !== "undefined") {
+    if (typeof window.pageYOffset !== 'undefined') {
       return window.pageYOffset;
     } else if (document && document.documentElement && document.documentElement.scrollTop) {
       return document.documentElement.scrollTop;
     } else if (document && document.body && document.body.scrollTop) {
       return document.body.scrollTop;
-    } else {
-      return 0;
     }
+    return 0;
   }
 
   static defaultProps = {
     offset: 25,
-    height:35,
+    height: 35,
     animationDuration: 3000,
     animationDelay: 1000
   };
@@ -71,10 +74,10 @@ export default class SkillBar extends Component<Props, State> {
   constructor() {
     super();
 
-    let clientSide = typeof window !== 'undefined';
+    const clientSide = typeof window !== 'undefined';
     this.listener = throttle(this.handleScroll.bind(this), 200);
-    if(clientSide && window.addEventListener) {
-        window.addEventListener("scroll", this.listener);
+    if (clientSide && window.addEventListener) {
+      window.addEventListener('scroll', this.listener);
     }
 
     this.state = {
@@ -101,36 +104,36 @@ export default class SkillBar extends Component<Props, State> {
 
   removeListener() {
     if (this.state.clientSide) {
-      window.removeEventListener("scroll", this.listener);
+      window.removeEventListener('scroll', this.listener);
     }
   }
 
   visibilityHasChanged(visible : Object) {
     return visible.completely !== this.state.lastVisibility.completely ||
-      visible.partially !== this.state.lastVisibility.partially
+      visible.partially !== this.state.lastVisibility.partially;
   }
 
   isMovingIntoView(visible : Object) {
-    return !this.state.lastVisibility.completely && visible.completely
+    return !this.state.lastVisibility.completely && visible.completely;
   }
 
   handleScroll() {
     const visible = this.isVisible();
     if (this.state.collapsed && this.visibilityHasChanged(visible) && this.isMovingIntoView(visible)) {
       setTimeout(() => {
-        this.setState({ collapsed: false })
+        this.setState({ collapsed: false });
       }, this.props.animationDelay);
       this.removeListener();
       this.setState({ lastVisibility: visible });
-      } else {
-        this.setState({ lastVisibility: visible });
-      }
+    } else {
+      this.setState({ lastVisibility: visible });
     }
+  }
 
   isVisible() {
     const viewBottom = window.pageYOffset + window.innerHeight;
     const viewTop = window.pageYOffset;
-    const offset = this.props.offset;
+    const { offset } = this.props;
     const elementBottom = this.state.elementBottom || 0;
     const elementTop = this.state.elementTop || 0;
     const middleOfView = window.pageYOffset + (window.innerHeight / 2);
@@ -139,73 +142,82 @@ export default class SkillBar extends Component<Props, State> {
       const partially = completely || (((elementTop > middleOfView + offset && elementTop < viewBottom) ||
         (elementBottom < middleOfView - offset && elementBottom > viewTop)));
       return {
-        completely: completely,
-        partially: partially
-      }
+        completely,
+        partially
+      };
     }
     return {
-      completely: (elementBottom < viewBottom - offset && elementBottom > viewTop + offset) && (elementTop > viewTop + offset && elementTop < viewBottom - offset),
+      completely: (elementBottom < viewBottom - offset && elementBottom > viewTop + offset) &&
+      (elementTop > viewTop + offset && elementTop < viewBottom - offset),
       partially: (elementBottom < viewBottom && elementBottom > viewTop) || (elementTop > viewTop && elementTop < viewBottom)
     };
   }
 
   getSkillBarColor(skill: Object, index: number) {
     const { colors } = this.props;
-    if(skill.color && skill.color.bar && isString(skill.color.bar)) {
+    if (skill.color && skill.color.bar && isString(skill.color.bar)) {
       return skill.color.bar;
-    } else if(colors && colors.bar) {
-      if(isString(colors.bar)) {
+    } else if (colors && colors.bar) {
+      if (isString(colors.bar)) {
         return colors.bar;
-      } else {
-        return getHSL(colors.bar, index, this.props.skills.length);
       }
-    } else {
-      return '';
+      return getHSL(colors.bar, index, this.props.skills.length);
     }
+    return '';
   }
 
   getTitleColor(skill : Object, index : number, entry : string) {
     const { colors } = this.props;
-    if(skill.color && skill.color.title && skill.color.title[entry] && isString(skill.color.title[entry])) {
+    if (skill.color && skill.color.title && skill.color.title[entry] && isString(skill.color.title[entry])) {
       return skill.color.title[entry];
-    } else if(colors && colors.title && colors.title[entry]) {
-      if(isString(colors.title[entry])) {
+    } else if (colors && colors.title && colors.title[entry]) {
+      if (isString(colors.title[entry])) {
         return colors.title[entry];
-      } else {
-        return getHSL(colors.title[entry], index, this.props.skills.length);
       }
-    } else {
-      return '';
+      return getHSL(colors.title[entry], index, this.props.skills.length);
     }
-  }
-
-  getHeight(propHeight : number | string) {
-      return isString(propHeight) ? propHeight : `${propHeight}px`;
+    return '';
   }
 
   render() {
     const { collapsed } = this.state;
     const { skills } = this.props;
 
-    return(
+    return (
       <div ref={node => this.node = node}>
         {skills.map((skill, index) =>
-          <div key={skill.type} className="skillbar" style={{height: `${this.getHeight(this.props.height)}`, 'lineHeight': `${this.getHeight(this.props.height)}`}}>
-            <div className="skillbar-title" style={{color: `${this.getTitleColor(skill,index, 'text')}`, background: `${this.getTitleColor(skill, index, 'background')}`}}><span>{skill.type}</span></div>
-            <div className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`} style={{background: `${this.getSkillBarColor(skill, index)}`, width: `calc((100% - 110px) * (${skill.level} * 0.01))`, transition: `width ${this.props.animationDuration}ms ease-in-out`}}></div>
-            <div className="skillbar-percent">{skill.level}%</div>
-          </div>
-        )}
+          (
+            <div
+              key={skill.type}
+              className="skillbar"
+              style={{ height: `${getHeight(this.props.height)}`, lineHeight: `${getHeight(this.props.height)}` }}
+            >
+              <div
+                className="skillbar-title"
+                style={{ color: `${this.getTitleColor(skill, index, 'text')}`, background: `${this.getTitleColor(skill, index, 'background')}` }}
+              >
+                <span>{skill.type}</span>
+              </div>
+              <div
+                className={`skillbar-bar ${collapsed ? 'collapsed' : ''}`}
+                style={{
+                  background: `${this.getSkillBarColor(skill, index)}`,
+                  width: `calc((100% - 110px) * (${skill.level} * 0.01))`,
+                  transition: `width ${this.props.animationDuration}ms ease-in-out`
+                }}
+              />
+              <div className="skillbar-percent">{skill.level}%</div>
+            </div>))}
       </div>
-    )
+    );
   }
 }
 
 SkillBar.propTypes = {
-  skills: PropTypes.array.isRequired,
-  colors: PropTypes.object,
+  skills: PropTypes.arrayOf(PropTypes.shape),
+  colors: PropTypes.shape,
   animationDelay: PropTypes.number,
   animationDuration: PropTypes.number,
   offset: PropTypes.number,
-  height: PropTypes.oneOfType([PropTypes.number,PropTypes.string])
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
