@@ -84,7 +84,7 @@
     "react-dev-utils": "^5.0.0",
     "react-dom": "^16.2.0",
     "sass-loader": "6.0.7",
-    "semantic-release": "^12.4.1",
+    "semantic-release": "^15.1.7",
     "style-loader": "0.20.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "1.0.1",
