@@ -86,7 +86,7 @@
     "sass-loader": "7.0.1",
     "semantic-release": "15.1.7",
     "style-loader": "0.21.0",
-    "sw-precache-webpack-plugin": "0.11.4",
+    "sw-precache-webpack-plugin": "0.11.5",
     "url-loader": "1.0.1",
     "webpack": "3.11.0",
     "webpack-dev-server": "2.11.1",
