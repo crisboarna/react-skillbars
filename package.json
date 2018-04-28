@@ -41,7 +41,7 @@
     "lodash.throttle": "4.1.1"
   },
   "devDependencies": {
-    "autoprefixer": "8.3.0",
+    "autoprefixer": "8.4.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.2.3",
     "babel-jest": "22.4.1",
