@@ -52,7 +52,7 @@
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.0",
     "codecov": "3.0.1",
-    "commitizen": "2.9.6",
+    "commitizen": "2.10.0",
     "css-loader": "0.28.11",
     "cz-conventional-changelog": "2.1.0",
     "dotenv": "5.0.1",
