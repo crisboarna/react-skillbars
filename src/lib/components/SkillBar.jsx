@@ -215,7 +215,7 @@ export default class SkillBar extends Component<Props, State> {
 
 SkillBar.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.shape),
-  colors: PropTypes.shape,
+  colors: PropTypes.object,
   animationDelay: PropTypes.number,
   animationDuration: PropTypes.number,
   offset: PropTypes.number,
