@@ -67,7 +67,7 @@
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.7.0",
     "extract-text-webpack-plugin": "3.0.2",
-    "file-loader": "1.1.11",
+    "file-loader": "2.0.0",
     "flow-bin": "0.71.0",
     "fs-extra": "6.0.0",
     "greenkeeper-lockfile": "1.14.0",
