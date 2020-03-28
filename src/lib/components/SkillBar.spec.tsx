@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import SkillBar from './SkillBar';
 
 describe('SkillBar', () => {
-  let component;
+  let component: any;
 
   beforeAll(() => {
     configure({ adapter: new Adapter() });
@@ -811,6 +811,8 @@ describe('SkillBar', () => {
     ];
 
     beforeEach(() => {
+      jest.useFakeTimers();
+      // @ts-ignore
       Element.prototype.getBoundingClientRect = jest.fn(() => ({
         width: 847.5,
         height: 335,
@@ -819,63 +821,70 @@ describe('SkillBar', () => {
         bottom: 1098.566650390625,
         right: 0,
       }));
-
+      // @ts-ignore
       window.pageYOffset = 0;
-      jest.useFakeTimers();
     });
 
     it('should remove collapsed class after timeout expiry', () => {
       component = mount(<SkillBar skills={skills} />);
-
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
       expect(component.state().collapsed).toEqual(false);
     });
 
     it('should remove collapsed class after timeout expiry given documentElement scrollTop value', () => {
+      // @ts-ignore
       window.pageYOffset = undefined;
       document.documentElement.scrollTop = 1;
       component = mount(<SkillBar skills={skills} />);
 
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
       expect(component.state().collapsed).toEqual(false);
+      // @ts-ignore
       document.documentElement.scrollTop = undefined;
     });
 
     it('should remove collapsed class after timeout expiry given document body scrollTop value', () => {
+      // @ts-ignore
       window.pageYOffset = undefined;
       document.body.scrollTop = 1;
       component = mount(<SkillBar skills={skills} />);
-
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
       expect(component.state().collapsed).toEqual(false);
+      // @ts-ignore
       document.body.scrollTop = undefined;
     });
 
     it('should remove collapsed class after timeout expiry given default posTop value', () => {
+      // @ts-ignore
       window.pageYOffset = undefined;
       component = mount(<SkillBar skills={skills} />);
 
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
       expect(component.state().collapsed).toEqual(false);
     });
 
     it('should be in full visiblity due to high viewport', () => {
+      // @ts-ignore
       Element.prototype.getBoundingClientRect = jest.fn(() => ({
         width: 847.5,
         height: 335,
@@ -885,16 +894,17 @@ describe('SkillBar', () => {
         right: 0,
       }));
       component = mount(<SkillBar skills={skills} />);
-
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
       expect(component.state().collapsed).toEqual(false);
     });
 
     it('should be invisible due to low component position', () => {
+      // @ts-ignore
       Element.prototype.getBoundingClientRect = jest.fn(() => ({
         width: 847.5,
         height: 335,
@@ -904,6 +914,7 @@ describe('SkillBar', () => {
         right: 0,
       }));
 
+      // @ts-ignore
       global.pageYOffset = 500;
       component = mount(<SkillBar skills={skills} offset={375} />);
 
@@ -915,13 +926,14 @@ describe('SkillBar', () => {
     it('should not change collapsed status after second scroll from full visiblity and listener removed for scroll events', () => {
       component = mount(<SkillBar skills={skills} />);
 
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
       jest.runAllTimers();
       expect(component.state().collapsed).toEqual(false);
-
+      // @ts-ignore
       global.pageYOffset = 510;
       component.instance().isVisible = jest.fn(() => ({ partially: false, completely: false }));
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
@@ -935,11 +947,13 @@ describe('SkillBar', () => {
       component = mount(<SkillBar skills={skills} />);
       component.unmount();
       expect(mockMethod.mock.calls.length).toEqual(1);
+      component = mount(<SkillBar skills={skills} />);
     });
 
     it('should trigger event after custom delay provided', () => {
       component = mount(<SkillBar skills={skills} animationDelay={7000} />);
 
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
@@ -951,6 +965,7 @@ describe('SkillBar', () => {
     it('should trigger with a custom animation duration', () => {
       component = mount(<SkillBar skills={skills} animationDuration={7000} />);
 
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
@@ -962,6 +977,7 @@ describe('SkillBar', () => {
     it('should not trigger given no node ref', () => {
       component = shallow(<SkillBar skills={skills} />);
 
+      // @ts-ignore
       global.pageYOffset = 500;
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
       expect(component.state().collapsed).toEqual(true);

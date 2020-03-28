@@ -2,6 +2,7 @@
   "name": "react-skillbars",
   "version": "0.0.0-development",
   "main": "build-module/index.js",
+  "types": "build-module/index.d.ts",
   "description": "React NPM library containing skill bars with full color customizations and responsive layout.",
   "config": {
     "commitizen": {
@@ -11,14 +12,13 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build:ghpage": "node scripts/build-ghpage.js",
-    "build:module": "node scripts/build-module.js",
+    "build:module": "tsc",
+    "prebuild": "rm -rf build-ghpage && rm -rf build-module",
     "build": "npm run build:ghpage && npm run build:module",
     "test": "node scripts/test.js --env=jsdom --coverage",
-    "precommit": "CI=test npm test && npm run flow && npm run lint",
+    "precommit": "npm test && npm run lint",
     "commit": "git-cz",
-    "prepush": "CI=test npm test",
-    "flow": "flow",
-    "lint": "eslint . --fix",
+    "lint": "eslint src/* --fix",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
@@ -41,64 +41,90 @@
     "lodash.throttle": "4.1.1"
   },
   "devDependencies": {
-    "autoprefixer": "8.3.0",
-    "babel-core": "6.26.0",
-    "babel-eslint": "8.2.3",
-    "babel-jest": "22.4.1",
-    "babel-loader": "7.1.4",
-    "babel-preset-jest": "22.4.1",
-    "babel-preset-react-app": "^3.1.0",
-    "babel-runtime": "6.26.0",
-    "case-sensitive-paths-webpack-plugin": "2.1.2",
-    "chalk": "2.4.0",
-    "codecov": "3.0.1",
-    "commitizen": "2.9.6",
-    "css-loader": "0.28.11",
-    "cz-conventional-changelog": "2.1.0",
-    "dotenv": "5.0.1",
-    "dotenv-expand": "4.2.0",
-    "enzyme": "3.3.0",
-    "enzyme-adapter-react-16": "1.1.1",
-    "eslint": "4.19.0",
-    "eslint-config-airbnb": "16.1.0",
-    "eslint-loader": "2.0.0",
-    "eslint-plugin-flowtype": "2.46.3",
-    "eslint-plugin-import": "2.11.0",
-    "eslint-plugin-jsx-a11y": "5.1.1",
-    "eslint-plugin-react": "7.7.0",
-    "extract-text-webpack-plugin": "3.0.2",
-    "file-loader": "1.1.11",
-    "flow-bin": "0.71.0",
-    "fs-extra": "6.0.0",
-    "greenkeeper-lockfile": "1.14.0",
-    "html-webpack-plugin": "3.2.0",
-    "husky": "0.15.0-rc.2",
-    "jest": "22.4.0",
-    "node-sass": "^4.5.3",
-    "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "3.3.1",
-    "postcss-loader": "2.1.4",
-    "promise": "8.0.1",
-    "prop-types": "15.6.1",
-    "raf": "3.4.0",
-    "react": "^16.2.0",
-    "react-dev-utils": "^5.0.0",
-    "react-dom": "^16.2.0",
-    "sass-loader": "7.0.1",
-    "semantic-release": "15.1.11",
-    "style-loader": "0.21.0",
-    "sw-precache-webpack-plugin": "0.11.5",
-    "url-loader": "1.0.1",
-    "webpack": "3.11.0",
-    "webpack-dev-server": "2.11.1",
-    "webpack-manifest-plugin": "2.0.2",
-    "whatwg-fetch": "2.0.3"
-  },
-  "peerDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "@babel/core": "^7.9.0",
+    "@svgr/webpack": "^5.3.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^10.0.1",
+    "@testing-library/user-event": "^10.0.1",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.1.4",
+    "@types/lodash.throttle": "^4.1.6",
+    "@types/node": "^13.9.5",
+    "@types/react": "^16.9.26",
+    "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "babel-eslint": "10.1.0",
+    "babel-jest": "^25.2.3",
+    "babel-loader": "8.1.0",
+    "babel-plugin-named-asset-import": "^0.3.6",
+    "babel-preset-react-app": "^9.1.2",
+    "camelcase": "^5.3.1",
+    "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "chalk": "3.0.0",
+    "codecov": "3.6.5",
+    "commitizen": "4.0.3",
+    "css-loader": "3.4.2",
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-loader": "3.0.3",
+    "eslint-plugin-flowtype": "4.7.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "file-loader": "6.0.0",
+    "fs-extra": "^9.0.0",
+    "greenkeeper-lockfile": "1.15.1",
+    "html-webpack-plugin": "4.0.2",
+    "husky": "^4.2.3",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "25.2.3",
+    "jest-environment-jsdom-fourteen": "1.0.1",
+    "jest-enzyme": "^7.1.2",
+    "jest-resolve": "25.2.3",
+    "jest-watch-typeahead": "0.4.2",
+    "mini-css-extract-plugin": "0.9.0",
+    "node-sass": "^4.13.1",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "pnp-webpack-plugin": "1.6.4",
+    "postcss-flexbugs-fixes": "4.2.0",
+    "postcss-loader": "3.0.0",
+    "postcss-normalize": "8.0.1",
+    "postcss-preset-env": "6.7.0",
+    "postcss-safe-parser": "4.0.2",
+    "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
+    "react-dev-utils": "^10.2.1",
+    "react-dom": "^16.13.1",
+    "resolve": "1.15.1",
+    "resolve-url-loader": "3.1.1",
+    "sass-loader": "8.0.2",
+    "semantic-release": "17.0.4",
+    "semver": "7.1.3",
+    "style-loader": "1.1.3",
+    "terser-webpack-plugin": "2.3.5",
+    "ts-pnp": "1.2.0",
+    "typescript": "~3.8.3",
+    "url-loader": "4.0.0",
+    "webpack": "4.42.1",
+    "webpack-dev-server": "3.10.3",
+    "webpack-manifest-plugin": "2.2.0",
+    "workbox-webpack-plugin": "5.1.2"
   },
   "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/lib/**/*.{ts,tsx}"
+    ],
     "coverageReporters": [
       "text",
       "html",
@@ -112,78 +138,57 @@
         "statements": 100
       }
     },
-    "collectCoverageFrom": [
-      "src/lib/**/*.{js,jsx}"
-    ],
     "setupFiles": [
-      "<rootDir>/config/polyfills.js"
+      "react-app-polyfill/jsdom",
+      "enzyme-react-16-adapter-setup"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts",
+      "<rootDir>/node_modules/jest-enzyme/lib/index.js"
     ],
     "testMatch": [
-      "<rootDir>/src/lib/**/__tests__/**/*.js?(x)",
-      "<rootDir>/src/lib/**/?(*.)(spec|test).js?(x)"
+      "<rootDir>/src/lib/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/lib/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
-    "testEnvironment": "node",
+    "testEnvironment": "jest-environment-jsdom-fourteen",
     "testURL": "http://localhost",
     "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
     ],
     "moduleNameMapper": {
-      "^react-native$": "react-native-web"
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
       "web.js",
       "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
       "json",
       "web.jsx",
       "jsx",
       "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
     ]
   },
   "babel": {
     "presets": [
-      "react-app",
-      "flow"
+      "react-app"
     ]
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "airbnb",
-    "rules": {
-      "react/require-default-props": "off",
-      "max-len": [
-        "error",
-        {
-          "code": 160
-        }
-      ],
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true
-        }
-      ],
-      "comma-dangle": "off",
-      "react/sort-comp": "off",
-      "react/no-did-mount-set-state": "off"
-    },
-    "globals": {
-      "expect": false,
-      "it": false,
-      "describe": false,
-      "beforeAll": false,
-      "beforeEach": false,
-      "afterEach": false,
-      "window": false,
-      "document": false,
-      "jest": false,
-      "Element": false,
-      "HTMLDivElement": false
-    }
+    "extends": "react-app"
   },
   "eslintIgnore": [
     "coverage/*",
@@ -193,5 +198,17 @@
     "build-ghpage/*",
     "build-module/*",
     "src/demo/registerServiceWorker.js"
-  ]
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
