@@ -931,7 +931,7 @@ describe('SkillBar', () => {
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
       expect(component.state().collapsed).toEqual(false);
       // @ts-ignore
       global.pageYOffset = 510;
@@ -958,7 +958,7 @@ describe('SkillBar', () => {
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
       expect(component.state().collapsed).toEqual(false);
     });
 
@@ -970,7 +970,7 @@ describe('SkillBar', () => {
       window.dispatchEvent(new window.UIEvent('scroll', { detail: 0 }));
 
       expect(component.state().collapsed).toEqual(true);
-      jest.runAllTimers();
+      jest.runOnlyPendingTimers();
       expect(component.find('.skillbar-bar').prop('style')).toHaveProperty('transition', 'width 7000ms ease-in-out');
     });
 
