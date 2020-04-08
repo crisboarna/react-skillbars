@@ -64,7 +64,7 @@
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "chalk": "3.0.0",
     "codecov": "3.6.5",
-    "commitizen": "4.0.3",
+    "commitizen": "4.0.4",
     "css-loader": "3.4.2",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
