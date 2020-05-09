@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build:ghpage": "node scripts/build-ghpage.js",
-    "build:module": "tsc",
+    "build:module": "node scripts/build-module.js",
     "prebuild": "rm -rf build-ghpage && rm -rf build-module",
     "build": "npm run build:ghpage && npm run build:module",
     "test": "node scripts/test.js --env=jsdom --coverage",
@@ -184,7 +184,8 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "@babel/typescript"
     ]
   },
   "eslintConfig": {

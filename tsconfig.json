@@ -4,6 +4,7 @@
     "target": "es5",
     "module": "commonjs",
     "declaration": true,
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
