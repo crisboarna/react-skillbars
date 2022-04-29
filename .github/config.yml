@@ -1,0 +1,43 @@
+name: react-skillbars
+description: React NPM library containing skill bars with full color customizations and responsive layout.
+body:
+  -
+
+todo:
+  keyword: "@makeAnIssue"
+
+# Configuration for request-info - https://github.com/behaviorbot/request-info
+
+# *Required* Comment to reply with
+requestInfoReplyComment: |
+  Hi there :wave:!
+  I noticed that this new issue/PR doesn't provide any description, so I labeled it with `needs-more-info`.
+
+  In order for us to be able to review your contribution and answer questions more quickly, please
+  describe it in more detail. A thorough description will also help people from the future, who
+  are looking for some quick context around this set of changes.
+  A great way to start is to follow the repository specific PR template. Ultimately, the most important question to answer in your
+  description is: *what goal do you want to achieve with this change?*.
+  Thank you! :heart:
+
+# *OPTIONAL* Label to be added to Issues and Pull Requests with insufficient information given
+requestInfoLabelToAdd: needs-more-info
+
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
+  Thank you for opening your first issue in this project! Engagement like this is essential for open source projects! :hugs:
+  Also, please try to follow the issue template as it helps other other community members to contribute more effectively.
+  <br>Welcome to this project! :tada:
+
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: >
+  Thanks for submitting your first pull request! You are awesome! :hugs:
+  Also, please make sure you followed the pull request template, as this will help us review your contribution more quickly.
+  <br>Welcome to this project! :tada:
+# Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
+
+# Comment to be posted to on pull requests merged by a first time user
+firstPRMergeComment: >
+  Congrats on your first merged pull request in this project! :tada:
+  ![congrats](https://raw.githubusercontent.com/crisboarna/react-skillbars/master/packages/docs/static/img/congrats.jpg)
+  Thank you for contributing, we are very proud of you! :heart:

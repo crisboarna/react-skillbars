@@ -1,0 +1,66 @@
+---
+sidebar_position: 2
+---
+
+# Height
+
+## Default Unit
+
+You can provide a `height` prop with a `number` and it will render it based on `number`px.
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} height={15}/>
+```
+
+import SkillBar from '../../../react-skillbars/src'
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} height={15}/>
+
+
+## Custom Unit
+
+You can also provide a `string` with the value and unit to use that instead.
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} height={'5vh'}/>
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} height={'5vh'}/>
+
+

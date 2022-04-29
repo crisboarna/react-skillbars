@@ -1,0 +1,141 @@
+{
+  "name": "react-skillbars",
+  "version": "1.6.1",
+  "description": "React NPM library containing skill bars with full color customizations and responsive layout.",
+  "main": "dist/ejs/index.js",
+  "types": "dist/ejs/index.d.ts",
+  "module": "dist/esm/index.js",
+  "source": "src/index.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crisboarna/react-skillbars.git"
+  },
+  "author": "Cristian Boarna <contact@crisboarna.com>",
+  "bugs": {
+    "url": "https://github.com/crisboarna/react-skillbars/issues"
+  },
+  "homepage": "https://crisboarna.github.io/crisboarna/react-skillbars/",
+  "scripts": {
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --max-warnings 0",
+    "test": "jest --coverage",
+    "build": "concurrently 'yarn build:esm' 'yarn build:node'",
+    "build:esm": "tsc -p ./tsconfig.esm.json",
+    "build:node": "tsc -p ./tsconfig.node.json",
+    "postbuild": "cd ../../ && cp README.md LICENSE.md CONTRIBUTING.md packages/react-skillbars",
+    "release": "semantic-release"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@nrwl/jest": "13.10.2",
+    "@nrwl/react": "13.10.2",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.4",
+    "@shopify/jest-dom-mocks": "^3.0.16",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@testing-library/user-event": "^14.1.1",
+    "@types/jest": "^27.4.1",
+    "@types/node": "16.11.7",
+    "@types/react": "^18.0.8",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "~5.18.0",
+    "@typescript-eslint/parser": "~5.18.0",
+    "babel-jest": "27.2.3",
+    "concurrently": "^7.1.0",
+    "eslint": "~8.12.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "jest": "27.5.1",
+    "prettier": "^2.5.1",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "semantic-release": "^19.0.2",
+    "ts-jest": "^27.1.4",
+    "typescript": "~4.6.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8 >=17 >=18",
+    "react-dom": ">=16.8 >=17 >=18"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "package.json"
+  ],
+  "keywords": [
+    "ReactJs",
+    "skill bars",
+    "bars",
+    "progress bars",
+    "percentage bars",
+    "percentage"
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/npm",
+        {
+          "tarballDir": "dist"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": "dist/*.tgz"
+        }
+      ]
+    ],
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "master",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
+  }
+}

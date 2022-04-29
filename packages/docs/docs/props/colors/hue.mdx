@@ -1,0 +1,298 @@
+---
+sidebar_position: 2
+---
+
+# Hue
+
+## Bar
+
+You can provide as alternative in the `colors` object the hue values that will be applied across all the skills provided.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+const colors = {
+  bar: {
+    hue: 0,
+    saturation: 50,
+    level: {
+      minimum: 80,
+      maximum: 100
+    }
+  }
+};
+<SkillBar skills={skills} colors={colors}/>
+```
+
+import SkillBar from '../../../../react-skillbars/src'
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} colors={{
+  bar: {
+  hue: 0,
+  saturation: 50,
+  level: {
+    minimum: 80,
+    maximum: 100
+  }
+}}}/>
+
+## Bar & Text
+
+You can provide as alternative in the `colors` object the hue values that will be applied across all the skills provided.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+const colors = {
+  bar: {
+    hue: 32,
+    saturation: 50,
+    level: {
+      minimum: 30,
+      maximum: 70
+    }
+  },
+  title: {
+    text: {
+      hue: 45,
+      saturation: {
+        minimum: 70,
+        maximum: 30
+      },
+      level: 50
+    }
+  }
+};
+<SkillBar skills={skills} colors={colors}/>
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} colors={{
+  bar: {
+    hue: 32,
+    saturation: 50,
+    level: {
+      minimum: 30,
+      maximum: 70
+    }
+  },
+  title: {
+    text: {
+      hue: 45,
+      saturation: {
+        minimum: 70,
+        maximum: 30
+      },
+      level: 50
+    }
+  }
+}}/>
+
+## Bar & Text & Background
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+const colors = {
+  bar: {
+    hue: 32,
+    saturation: 50,
+    level: {
+      minimum: 30,
+      maximum: 70
+    }
+  },
+  title: {
+    text: {
+      hue: 45,
+      saturation: {
+        minimum: 30,
+        maximum: 70
+      },
+      level: 50
+    },
+    background: {
+      hue: 30,
+      saturation: {
+        minimum: 30,
+        maximum: 70
+      },
+      level: {
+        minimum: 0,
+        maximum: 50
+      }
+    }
+  }
+};
+<SkillBar skills={skills} colors={colors}/>
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} colors={{
+  bar: {
+    hue: 32,
+    saturation: 50,
+    level: {
+      minimum: 30,
+      maximum: 70
+    }
+  },
+  title: {
+    text: {
+      hue: 45,
+      saturation: {
+        minimum: 30,
+        maximum: 70
+      },
+      level: 50
+    },
+    background: {
+      hue: 30,
+      saturation: {
+        minimum: 30,
+        maximum: 70
+      },
+      level: {
+        minimum: 0,
+        maximum: 50
+      }
+    }
+  }
+}}/>
+
+
+## Bar & Text & Background & Solid Colors
+
+You can mix hue with the solid coloring of individual elements.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  {
+    type: 'Java',
+    level: 100,
+    color: {
+      bar: '#3498db',
+      title: {
+        text: '#111',
+        background: '#2980b9'
+      }
+    }
+  },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+const colors = {
+  bar: '#ffa',
+    title: {
+      text: {
+        hue: 45,
+        saturation: {
+          minimum: 30,
+          maximum: 70
+        },
+        level: 50
+      },
+      background: {
+        hue: 30,
+        saturation: {
+          minimum: 30,
+          maximum: 70
+        },
+        level: {
+          minimum: 0,
+          maximum: 50
+        }
+      }
+    }
+};
+<SkillBar skills={skills} colors={colors}/>
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100, color: { bar: '#3498db', title: { text: '#111', background: '#2980b9' } } },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} colors={{
+  bar: '#ffa',
+  title: {
+    text: {
+      hue: 45,
+      saturation: {
+        minimum: 30,
+        maximum: 70
+      },
+      level: 50
+    },
+    background: {
+      hue: 30,
+      saturation: {
+        minimum: 30,
+        maximum: 70
+      },
+      level: {
+        minimum: 0,
+        maximum: 50
+      }
+    }
+  }
+}}/>
+

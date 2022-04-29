@@ -1,0 +1,136 @@
+---
+sidebar_position: 3
+---
+
+# Animation
+
+## Delay
+
+By providing `animationDelay` you can delay the start of the animation from the moment the component enters the viewport by
+`animationDelay` ms.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} animationDelay={4000}/>
+```
+
+import SkillBar from '../../../react-skillbars/src'
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} animationDelay={4000}/>
+
+
+## Duration
+
+By providing `animationDuration` you can lengthen/shorten the duration of the animation from the moment the component enters the viewport by
+`animationDuration` ms.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} animationDuration={7000}/>
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} animationDuration={7000}/>
+
+
+## Offset
+
+By providing `offset` you can move the margin around the root. Can have values similar to the CSS margin property, e.g. "10px 20px 30px 40px" (top, right, bottom, left).
+
+The values can be percentages. This set of values serves to grow or shrink each side of the root element's bounding box before computing intersections. Defaults to all zeros.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} offset={`25px`}/>
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} offset={`25px`}/>
+
+## Threshold
+
+Either a single number or an array of numbers which indicate at what percentage of the target's visibility the observer's callback should be executed.
+
+If you only want to detect when visibility passes the 50% mark, you can use a value of 0.5.
+
+If you want the callback to run every time visibility passes another 25%, you would specify the array [0, 0.25, 0.5, 0.75, 1].
+The default is 0 (meaning as soon as even one pixel is visible, the callback will be run).
+A value of 1.0 means that the threshold isn't considered passed until every pixel is visible.
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} animationThreshold={0.8}/>
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} animationThreshold={0.8}/>
+
+

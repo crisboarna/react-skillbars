@@ -1,0 +1,264 @@
+---
+sidebar_position: 1
+---
+
+# Hex
+
+## Global
+
+You can provide a global `colors` property to configure the coloring of all the bars.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+const colors = {
+  bar: "#3498db",
+  title: {
+    text: "#fff",
+    background: "#2980b9"
+  }
+};
+<SkillBar skills={skills} colors={colors} />
+```
+
+import SkillBar from '../../../../react-skillbars/src'
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]} colors={{
+  bar: "#3498db",
+  title: {
+    text: "#fff",
+    background: "#2980b9"
+  }
+}}/>
+
+## Element Specific
+
+### Bar Only
+
+You can provide a specific `color` property to configure the color of a specific bar.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100, color: { bar: "#2980b9"} },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} />
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100, color: { bar: "#2980b9"} },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]}/>
+
+### Bar & Text Background
+
+You can provide a specific `color` property to configure the color of a specific bar and text background.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  {
+    type: 'Java',
+    level: 100,
+    color: {
+      bar: "#3498db",
+      title: { background: '#2980b9' }
+    }
+  },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} />
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100, color: { bar: "#3498db", title: { background: '#2980b9' } } },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]}/>
+
+### Bar & Text & Text Background
+
+You can provide a specific `color` property to configure the color of a specific bar and text background.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  {
+    type: 'Java',
+    level: 100,
+    color: {
+      bar: "#3498db",
+      title: { background: '#2980b9', text: "#fff" }
+    }
+  },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills} />
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100, color: { bar: "#3498db", title: { background: '#2980b9', text: '#fff' } } },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]}/>
+
+### All Bars Individually
+
+You can provide a specific `color` for each individual element.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  {
+    type: 'Java',
+    level: 100,
+    color: {
+      bar: "#3498db",
+      title: { background: '#2980b9', text: "#fff" }
+    }
+  },
+  { type: 'React', level: 85, color: { bar: 'brown' } },
+  { type: 'Javascript', level: 75, color: { bar: 'yellow' }  },
+  { type: 'Spring', level: 50, color: { bar: 'blue' }  },
+  { type: 'Docker', level: 25, color: { bar: 'orange' }  },
+  { type: 'HTML', level: 20, color: { bar: 'black' }  },
+  { type: 'NoSQL', level: 0, color: { bar: 'pink' }  }
+];
+<SkillBar skills={skills} />
+```
+
+<SkillBar skills={[
+  { type: 'Java', level: 100, color: { bar: "#3498db", title: { background: '#2980b9', text: '#fff' } } },
+  { type: 'React', level: 85, color: { bar: 'brown' } },
+  { type: 'Javascript', level: 75, color: { bar: 'yellow' }  },
+  { type: 'Spring', level: 50, color: { bar: 'blue' }  },
+  { type: 'Docker', level: 25, color: { bar: 'orange' }  },
+  { type: 'HTML', level: 20, color: { bar: 'black' }  },
+  { type: 'NoSQL', level: 0, color: { bar: 'pink' }  }
+]}/>
+
+### All Individually
+
+You can provide a specific `color` for each individual element.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+    {
+      type: 'Java',
+      level: 100,
+      color: {
+        bar: '#3498db',
+        title: { text: '#fff', background: '#2980b9' }
+      }
+    },
+    {
+      type: 'React',
+      level: 85,
+      color: {
+        bar: '#4288d0',
+        title: { text: '#fff', background: '#124e8c' }
+      }
+    },
+    {
+      type: 'Javascript',
+      level: 75, color: {
+        bar: '#2c3e50',
+        title: { text: '#fff', background: '#2c3e50' }
+      }
+    },
+    {
+      type: 'Spring',
+      level: 50, color: {
+        bar: '#5a68a5',
+        title: { text: '#fff', background: '#46465e' }
+      }
+    },
+    {
+      type: 'Docker',
+      level: 25,
+      color: {
+        bar: '#525252',
+        title: { text: '#fff', background: '#333333' }
+      }
+    },
+    {
+      type: 'HTML',
+      level: 20,
+      color: {
+        bar: 'black',
+        title: { text: '#111', background: '#fff' }
+      }
+    },
+    {
+      type: 'NoSQL',
+      level: 0,
+      color: {
+        bar: '#2ecc71',
+        title: { text: '#fff', background: '#27ae60' }
+      }
+    }
+];
+<SkillBar skills={skills} />
+```
+
+<SkillBar skills={[
+    { type: 'Java', level: 100, color: { bar: '#3498db', title: { text: '#fff', background: '#2980b9' } } },
+    { type: 'React', level: 85, color: { bar: '#4288d0', title: { text: '#fff', background: '#124e8c' } } },
+    { type: 'Javascript', level: 75, color: { bar: '#2c3e50', title: { text: '#fff', background: '#2c3e50' } } },
+    { type: 'Spring', level: 50, color: { bar: '#5a68a5', title: { text: '#fff', background: '#46465e' } } },
+    { type: 'Docker', level: 25, color: { bar: '#525252', title: { text: '#fff', background: '#333333' } } },
+    { type: 'HTML', level: 20, color: { bar: 'black', title: { text: '#111', background: '#fff' } } },
+    { type: 'NoSQL', level: 0, color: { bar: '#2ecc71', title: { text: '#fff', background: '#27ae60' } } }
+]}/>

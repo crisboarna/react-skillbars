@@ -1,215 +1,44 @@
 {
   "name": "react-skillbars",
-  "version": "0.0.0-development",
-  "main": "build-module/index.js",
-  "types": "build-module/index.d.ts",
+  "version": "1.6.1",
   "description": "React NPM library containing skill bars with full color customizations and responsive layout.",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build:ghpage": "node scripts/build-ghpage.js",
-    "build:module": "node scripts/build-module.js",
-    "prebuild": "rm -rf build-ghpage && rm -rf build-module",
-    "build": "npm run build:ghpage && npm run build:module",
-    "test": "node scripts/test.js --env=jsdom --coverage",
-    "precommit": "npm test && npm run lint",
-    "commit": "git-cz",
-    "lint": "eslint src/* --fix",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
-  },
+  "author": "Cristian Boarna <contact@crisboarna.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "homepage": "https://crisboarna.github.io/react-skillbars",
   "repository": {
     "type": "git",
     "url": "https://github.com/crisboarna/react-skillbars.git"
   },
-  "author": "Cristian Boarna <cristian.boarna@gmail.com>",
   "bugs": {
     "url": "https://github.com/crisboarna/react-skillbars/issues"
   },
-  "homepage": "https://crisboarna.github.io/react-skillbars",
-  "license": "MIT",
-  "files": [
-    "build-module/",
-    "README.md"
-  ],
-  "dependencies": {
-    "lodash.throttle": "^4.1.1"
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lib:lint": "yarn workspace react-skillbars lint",
+    "lib:test": "yarn workspace react-skillbars test",
+    "lib:build": "yarn workspace react-skillbars build",
+    "docs:start": "yarn workspace docs start",
+    "docs:build": "yarn workspace docs build",
+    "docs:serve": "yarn workspace docs serve",
+    "docs:deploy": "yarn workspace docs deploy"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@svgr/webpack": "^5.4.0",
-    "@testing-library/jest-dom": "^5.7.0",
-    "@testing-library/react": "^10.0.4",
-    "@testing-library/user-event": "^10.1.2",
-    "@types/enzyme": "^3.10.5",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
-    "@types/jest": "^25.2.1",
-    "@types/lodash.throttle": "^4.1.6",
-    "@types/node": "^13.13.5",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.7",
-    "@typescript-eslint/eslint-plugin": "^2.31.0",
-    "@typescript-eslint/parser": "^2.31.0",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.0.1",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-named-asset-import": "^0.3.6",
-    "babel-preset-react-app": "^9.1.2",
-    "camelcase": "^6.0.0",
-    "case-sensitive-paths-webpack-plugin": "^2.3.0",
-    "chalk": "^4.0.0",
-    "codecov": "^3.6.5",
-    "commitizen": "^4.1.2",
-    "css-loader": "^3.5.3",
-    "dotenv": "^8.2.0",
-    "dotenv-expand": "^5.1.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-react-16-adapter-setup": "^0.1.0",
-    "eslint": "^7.0.0",
-    "eslint-config-react-app": "^5.2.1",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-flowtype": "^4.7.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^4.0.0",
-    "file-loader": "^6.0.0",
-    "fs-extra": "^9.0.0",
-    "greenkeeper-lockfile": "^1.15.1",
-    "html-webpack-plugin": "^4.3.0",
-    "husky": "^4.2.5",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.0.1",
-    "jest-environment-jsdom-fourteen": "^1.0.1",
-    "jest-enzyme": "^7.1.2",
-    "jest-resolve": "^26.0.1",
-    "jest-watch-typeahead": "^0.6.0",
-    "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.14.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "pnp-webpack-plugin": "^1.6.4",
-    "postcss-flexbugs-fixes": "^4.2.1",
-    "postcss-loader": "^3.0.0",
-    "postcss-normalize": "^9.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "postcss-safe-parser": "^4.0.2",
-    "react": "^16.13.1",
-    "react-app-polyfill": "^1.0.6",
-    "react-dev-utils": "^10.2.1",
-    "react-dom": "^16.13.1",
-    "resolve": "^1.17.0",
-    "resolve-url-loader": "^3.1.1",
-    "sass-loader": "^8.0.2",
-    "semantic-release": "^17.0.7",
-    "semver": "^7.3.2",
-    "style-loader": "^1.2.1",
-    "terser-webpack-plugin": "^3.0.1",
-    "ts-pnp": "^1.2.0",
-    "typescript": "^3.8.3",
-    "url-loader": "^4.1.0",
-    "webpack": "^4.43.0",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-manifest-plugin": "^2.2.0",
-    "workbox-webpack-plugin": "^5.1.3"
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
-    "collectCoverageFrom": [
-      "src/lib/**/*.{ts,tsx}"
-    ],
-    "coverageReporters": [
-      "text",
-      "html",
-      "lcov"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 97,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    },
-    "setupFiles": [
-      "react-app-polyfill/jsdom",
-      "enzyme-react-16-adapter-setup"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.ts",
-      "<rootDir>/node_modules/jest-enzyme/lib/index.js"
-    ],
-    "testMatch": [
-      "<rootDir>/src/lib/**/__tests__/**/*.{js,jsx,ts,tsx}",
-      "<rootDir>/src/lib/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ],
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app",
-      "@babel/typescript"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "eslintIgnore": [
-    "coverage/*",
-    "config/*",
-    "flow-typed/*",
-    "scripts/*",
-    "build-ghpage/*",
-    "build-module/*",
-    "src/demo/registerServiceWorker.js"
-  ],
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1"
   }
 }

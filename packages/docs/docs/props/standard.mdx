@@ -1,0 +1,36 @@
+---
+sidebar_position: 1
+---
+
+# Standard
+
+The minimum you need to provide is the `skills` prop to render a bar.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+<SkillBar skills={skills}/>
+```
+
+import SkillBar from '../../../react-skillbars/src'
+
+<SkillBar skills={[
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+]}/>
+
+
