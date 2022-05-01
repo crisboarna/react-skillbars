@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/crisboarna/react-skillbars/compare/v2.0.0...v2.0.1) (2022-05-01)
+
+
+### Bug Fixes
+
+* **dist:** cleaned up distributable, minified ([ec478ab](https://github.com/crisboarna/react-skillbars/commit/ec478abeec21493fe16a4185306757ae134f72d3))
+
 # [2.0.0](https://github.com/crisboarna/react-skillbars/compare/v1.6.1...v2.0.0) (2022-04-29)
 
 
