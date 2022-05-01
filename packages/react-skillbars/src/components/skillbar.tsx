@@ -31,6 +31,9 @@ const SkillBar: FC<SkillBarProps> = ({
     isServer
   );
 
+  /**
+   * Based on IntersectionObserver API response, it sets with configurable timeout the animation trigger to show the bar
+   */
   useEffect(() => {
     if (intersection && intersection.isIntersecting) {
       const timer = setTimeout(() => setIsCollapsed(false), animationDelay);
@@ -38,6 +41,9 @@ const SkillBar: FC<SkillBarProps> = ({
     }
   }, [intersection]);
 
+  /**
+   * Computes based on individual or global `colors` object the coloring of the bar
+   */
   const getSkillBarColor = useCallback(
     (skill: SkillBarSkill, index: number) => {
       if (skill.color && skill.color.bar && Utils.isString(skill.color.bar)) {
@@ -53,6 +59,9 @@ const SkillBar: FC<SkillBarProps> = ({
     []
   );
 
+  /**
+   * Computes based on individual or global `colors` object the coloring of the text
+   */
   const getTitleColor = useCallback(
     (skill: SkillBarSkill, index: number, entry: string) => {
       if (

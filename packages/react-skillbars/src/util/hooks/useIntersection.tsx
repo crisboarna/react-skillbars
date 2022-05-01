@@ -1,5 +1,11 @@
 import { RefObject, useEffect, useState } from 'react';
 
+/**
+ * Hook used for checking whether provided component is in viewport or not based on configured thresholds
+ * @param ref
+ * @param options
+ * @param isServer
+ */
 export const useIntersection = (
   ref: RefObject<HTMLElement>,
   options: IntersectionObserverInit,
