@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "React NPM library containing skill bars with full color customizations and responsive layout.",
   "main": "dist/ejs/index.js",
-  "types": "dist/ejs/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "module": "dist/esm/index.js",
   "source": "src/index.ts",
   "license": "MIT",
@@ -19,9 +19,7 @@
   "scripts": {
     "lint": "eslint '*/**/*.{js,ts,tsx}' --max-warnings 0",
     "test": "jest --coverage",
-    "build": "concurrently 'yarn build:esm' 'yarn build:node'",
-    "build:esm": "tsc -p ./tsconfig.esm.json",
-    "build:node": "tsc -p ./tsconfig.node.json",
+    "build": "rollup -c",
     "postbuild": "cd ../../ && cp README.md LICENSE.md CONTRIBUTING.md packages/react-skillbars",
     "release": "semantic-release"
   },
@@ -29,6 +27,9 @@
   "devDependencies": {
     "@nrwl/jest": "13.10.2",
     "@nrwl/react": "13.10.2",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "@rollup/plugin-typescript": "^8.3.2",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.4",
@@ -54,6 +55,12 @@
     "prettier": "^2.5.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "rollup": "^2.71.1",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^4.2.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
     "semantic-release": "^19.0.2",
     "ts-jest": "^27.1.4",
     "typescript": "~4.6.2"

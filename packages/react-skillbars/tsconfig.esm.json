@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.node.json",
-  "compilerOptions": {
-    "outDir": "dist/esm",
-    "target": "es2015",
-    "module": "esnext"
-  }
-}
