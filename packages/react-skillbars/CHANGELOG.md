@@ -15,4 +15,4 @@
 
 ### BREAKING CHANGES
 
-* **hooks:** removed window dependnecy
+* **hooks:** removed window dependency
