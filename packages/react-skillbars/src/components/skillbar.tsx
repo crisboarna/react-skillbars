@@ -8,8 +8,10 @@ import { useIsServer } from '../util/hooks/useIsServer';
 const SkillBar: FC<SkillBarProps> = ({
   skills,
   colors,
+  barBackground = 'transparent',
   offset = `25px`,
   height = 35,
+  symbol = '%',
   animationDuration = 3000,
   animationDelay = 1000,
   animationThreshold = 0.8,
@@ -92,6 +94,7 @@ const SkillBar: FC<SkillBarProps> = ({
           style={{
             height: `${Utils.getHeight(height)}`,
             lineHeight: `${Utils.getHeight(height)}`,
+            background: barBackground,
           }}
         >
           <div
@@ -114,7 +117,8 @@ const SkillBar: FC<SkillBarProps> = ({
             }}
           />
           <div className="skillbar-percent" data-testid={'skillbar/percent'}>
-            {skill.level}%
+            {skill.level}
+            {symbol}
           </div>
         </div>
       ))}
