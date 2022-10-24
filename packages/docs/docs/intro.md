@@ -147,3 +147,15 @@ strings with unit attached at end as
 ```javascript
 <Skillbar skills={SKILLS} height={'10vh'} />
 ```
+
+### Symbol/Unit Measure
+
+Requirement: optional
+
+Default: %
+
+Specifies unit of measure. Accepts strings as input.
+
+```javascript
+symbol = {'HP'}
+```
