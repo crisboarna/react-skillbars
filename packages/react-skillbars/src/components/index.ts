@@ -19,7 +19,7 @@ export type SkillBarProps = {
    */
   readonly symbol?: string;
 
-  * Global colors object. Applies styling to all bar backgrounds
+  /** Global colors object. Applies styling to all bar backgrounds
    */
   readonly barBackground?: string;
 
