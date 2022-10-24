@@ -10,6 +10,7 @@ const SkillBar: FC<SkillBarProps> = ({
   colors,
   offset = `25px`,
   height = 35,
+  symbol = '%',
   animationDuration = 3000,
   animationDelay = 1000,
   animationThreshold = 0.8,
@@ -114,7 +115,8 @@ const SkillBar: FC<SkillBarProps> = ({
             }}
           />
           <div className="skillbar-percent" data-testid={'skillbar/percent'}>
-            {skill.level}%
+            {skill.level}
+            {symbol}
           </div>
         </div>
       ))}

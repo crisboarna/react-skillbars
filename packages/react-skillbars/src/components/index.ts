@@ -15,6 +15,11 @@ export type SkillBarProps = {
   readonly colors?: SkillBarColor;
 
   /**
+   * String object for unit symbol. Default is %.
+   */
+  readonly symbol?: string;
+
+  /**
    * By providing `offset` you can move the margin around the root. Can have values similar to the CSS margin property, e.g. "10px 20px 30px 40px" (top, right, bottom, left).
    *
    * The values can be percentages. This set of values serves to grow or shrink each side of the root element's bounding box before computing intersections. Defaults to all zeros.
