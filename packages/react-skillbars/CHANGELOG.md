@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/crisboarna/react-skillbars/compare/v2.0.1...v2.1.0) (2022-10-24)
+
+
+### Features
+
+* **bar:** configurable symbol and bar background color ([0b7797e](https://github.com/crisboarna/react-skillbars/commit/0b7797e753e8a2f64764a1b675dd45d6e107d7ba))
+
 ## [2.0.1](https://github.com/crisboarna/react-skillbars/compare/v2.0.0...v2.0.1) (2022-05-01)
 
 
