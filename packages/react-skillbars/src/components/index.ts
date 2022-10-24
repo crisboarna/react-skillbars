@@ -19,6 +19,10 @@ export type SkillBarProps = {
    */
   readonly symbol?: string;
 
+  * Global colors object. Applies styling to all bar backgrounds
+   */
+  readonly barBackground?: string;
+
   /**
    * By providing `offset` you can move the margin around the root. Can have values similar to the CSS margin property, e.g. "10px 20px 30px 40px" (top, right, bottom, left).
    *
