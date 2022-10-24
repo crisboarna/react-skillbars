@@ -35,7 +35,7 @@
     "@semantic-release/github": "^8.0.4",
     "@shopify/jest-dom-mocks": "^3.0.16",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^27.4.1",
