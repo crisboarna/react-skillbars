@@ -11,7 +11,7 @@
   margin-bottom:15px;
   width:100%;
   background: var(--skillBarBgColor);
-  border-radius:3px;
+  border-radius: 3px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
   -webkit-transition:0.4s linear;
@@ -62,9 +62,9 @@
   position:absolute;
   left:110px;
   background: var(--skillBarBg);
-  border-radius:3px;
-  -moz-border-radius:3px;
-  -webkit-border-radius:3px;
+  border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
 }
 
 .skillbar-percent {
