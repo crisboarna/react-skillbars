@@ -8,6 +8,7 @@ import { useIsServer } from '../util/hooks/useIsServer';
 const SkillBar: FC<SkillBarProps> = ({
   skills,
   colors,
+  barBackground = 'transparent',
   offset = `25px`,
   height = 35,
   animationDuration = 3000,
@@ -92,6 +93,7 @@ const SkillBar: FC<SkillBarProps> = ({
           style={{
             height: `${Utils.getHeight(height)}`,
             lineHeight: `${Utils.getHeight(height)}`,
+            background: barBackground,
           }}
         >
           <div
