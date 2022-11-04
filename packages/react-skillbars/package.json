@@ -25,7 +25,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@nrwl/jest": "13.10.2",
+    "@nrwl/jest": "15.0.8",
     "@nrwl/react": "13.10.2",
     "@rollup/plugin-commonjs": "^23.0.2",
     "@rollup/plugin-node-resolve": "^13.2.1",
