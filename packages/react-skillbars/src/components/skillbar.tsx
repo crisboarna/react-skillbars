@@ -12,6 +12,7 @@ const SkillBar: FC<SkillBarProps> = ({
   offset = `25px`,
   height = 35,
   symbol = '%',
+  symbolColor = 'white',
   animationDuration = 3000,
   animationDelay = 1000,
   animationThreshold = 0.8,
@@ -116,7 +117,10 @@ const SkillBar: FC<SkillBarProps> = ({
               transition: `width ${animationDuration}ms ease-in-out`,
             }}
           />
-          <div className="skillbar-percent" data-testid={'skillbar/percent'}>
+          <div className="skillbar-percent" data-testid={'skillbar/percent'}
+            style={{
+              color: symbolColor
+            }}>
             {skill.level}
             {symbol}
           </div>
