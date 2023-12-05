@@ -159,3 +159,15 @@ Specifies unit of measure. Accepts strings as input.
 ```javascript
 symbol = {'HP'}
 ```
+
+### Symbol & Level Text Color
+
+Requirement: optional
+
+Default: white
+
+Specifies color of symbol and bar level. Accepts strings of colors or hex codes.
+
+```javascript
+symbolColor = {'white'}
+```

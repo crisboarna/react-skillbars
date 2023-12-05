@@ -19,6 +19,11 @@ export type SkillBarProps = {
    */
   readonly symbol?: string;
 
+    /**
+   * String object for unit symbol. Default is %.
+   */
+  readonly symbolColor?: string;
+
   /** Global colors object. Applies styling to all bar backgrounds
    */
   readonly barBackground?: string;
