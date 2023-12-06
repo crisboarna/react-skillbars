@@ -1,6 +1,6 @@
-import React, { createRef, MutableRefObject } from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-dom/test-utils';
+import { createRef, MutableRefObject } from 'react';
+import { createRoot } from 'react-dom/client';
+import * as TestUtils from 'react-dom/test-utils';
 import { intersectionObserver } from '@shopify/jest-dom-mocks';
 import { useIntersection } from './useIntersection';
 import { renderHook } from '@testing-library/react';
@@ -38,7 +38,8 @@ describe('useIntersection', () => {
     it('is server, does nothing', () => {
       TestUtils.act(() => {
         targetRef = createRef();
-        ReactDOM.render(<div ref={targetRef} />, container);
+        const root = createRoot(container);
+        root.render(<div ref={targetRef} />);
       });
 
       expect(intersectionObserver.observers).toHaveLength(0);
@@ -53,7 +54,8 @@ describe('useIntersection', () => {
     it('not server, should setup an IntersectionObserver targeting the ref element and using the options provided', () => {
       TestUtils.act(() => {
         targetRef = createRef();
-        ReactDOM.render(<div ref={targetRef} />, container);
+        const root = createRoot(container);
+        root.render(<div ref={targetRef} />);
       });
 
       expect(intersectionObserver.observers).toHaveLength(0);

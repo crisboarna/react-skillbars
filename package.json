@@ -5,7 +5,9 @@
   "author": "Cristian Boarna <contact@crisboarna.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "homepage": "https://crisboarna.github.io/react-skillbars",
   "repository": {
     "type": "git",
@@ -35,10 +37,10 @@
     "docs:deploy": "yarn workspace docs deploy"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.1.0",
-    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^7.0.4",
-    "prettier": "^2.5.1"
+    "husky": "^8.0.3",
+    "prettier": "^3.1.0"
   }
 }

@@ -1,0 +1,38 @@
+---
+sidebar_position: 3
+---
+
+# Symbols
+
+## Global
+
+You can provide a global `symbolColor` property to configure the coloring of all the bars symbol coloring.
+
+```jsx
+import SkillBar from 'react-skillbars';
+
+const skills = [
+  { type: 'Java', level: 100 },
+  { type: 'React', level: 85 },
+  { type: 'Javascript', level: 75 },
+  { type: 'Spring', level: 50 },
+  { type: 'Docker', level: 25 },
+  { type: 'HTML', level: 20 },
+  { type: 'NoSQL', level: 0 }
+];
+
+<SkillBar skills={skills} symbolColor={'#3498db'} />
+```
+
+import SkillBar from '../../../../react-skillbars/src'
+
+<SkillBar skills={[
+    { type: 'Java', level: 100 },
+    { type: 'React', level: 85 },
+    { type: 'Javascript', level: 75 },
+    { type: 'Spring', level: 50 },
+    { type: 'Docker', level: 25 },
+    { type: 'HTML', level: 20 },
+    { type: 'NoSQL', level: 0 }
+]} symbolColor={'#3498db'}
+/>
