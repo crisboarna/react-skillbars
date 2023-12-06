@@ -1,6 +1,6 @@
 {
   "name": "react-skillbars",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "React NPM library containing skill bars with full color customizations and responsive layout.",
   "main": "dist/ejs/index.js",
   "types": "dist/types/index.d.ts",

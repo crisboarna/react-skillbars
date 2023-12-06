@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/crisboarna/react-skillbars/compare/v2.1.0...v2.2.0) (2023-12-06)
+
+
+### Features
+
+* **dependencies:** updated all dependencies to latest ([96544d7](https://github.com/crisboarna/react-skillbars/commit/96544d79caa51739dfaf1fd914242c0fbe17893d))
+
 # [2.1.0](https://github.com/crisboarna/react-skillbars/compare/v2.0.1...v2.1.0) (2022-10-24)
 
 
