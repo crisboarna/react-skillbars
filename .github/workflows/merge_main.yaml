@@ -40,7 +40,7 @@ jobs:
         run: yarn lib:test
 
       - name: 📊 Code Coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           directory: ./packages/react-skillbars/coverage
           flags: unittests
